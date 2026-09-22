@@ -1,0 +1,78 @@
+schema_version: "1.0"
+
+capsule:
+  id: "saysol.serenity.example"
+  display_name: "Example Capsule"
+  version: "0.1.0"
+  description: "Replace with the capsule purpose."
+  license: "MIT"
+  source_commit: null
+
+compatibility:
+  serenity:
+    - lane: "net8"
+      version: ">=9.2.0 <10.0.0"
+      dotnet: "8.0"
+      evidence: "planned"
+    - lane: "net10"
+      version: ">=10.5.0 <11.0.0"
+      dotnet: "10.0"
+      evidence: "planned"
+  node: null
+  package_manager: null
+
+dependencies:
+  shared:
+    required: false
+    version: null
+  capsules: []
+  nuget: []
+  npm: []
+
+variables:
+  - name: "WebProjectPath"
+    required: true
+    discovery:
+      type: "project-marker"
+      markers:
+        - "serenity.config.json"
+        - "package.json"
+      expected_matches: 1
+  - name: "MigrationsPath"
+    required: false
+    discovery:
+      type: "directory-pattern"
+      patterns:
+        - "{{WebProjectPath}}/Migrations"
+      expected_matches: 1
+
+installation:
+  allowed_write_roots:
+    - "{{WebProjectPath}}"
+    - ".saysol/installed"
+  files: []
+  migrations: []
+  edits: []
+  human_gates: []
+
+validation:
+  commands: []
+  behavioral_checks: []
+
+receipt:
+  path: ".saysol/installed/{{capsule.id}}.json"
+  record_changed_paths: true
+  record_validation: true
+  exclude_sensitive_values: true
+
+upgrade:
+  strategy: "manifest-diff"
+  require_existing_receipt: true
+  preserve_user_files: true
+
+uninstall:
+  remove_owned_files: true
+  reverse_bounded_edits: true
+  remove_packages_when_unused: true
+  applied_migrations: "forward-only-no-automatic-rollback"
+  human_gate_for_schema_reversal: true

@@ -8,6 +8,8 @@ Before implementing a wiki idea, check the
 [consolidation map](wiki-modernization/consolidation-map.md) to determine whether
 it belongs in an existing capsule, a new capsule, Shared, or documentation only.
 Record accepted capsules in the [capsule register](reference/capsule-register.md).
+All installable capsules must follow the
+[manifest-driven installation protocol](architecture/manifest-installation.md).
 
 ## Evidence order
 
@@ -39,6 +41,11 @@ A compiling legacy snippet is not evidence of a supported design.
   upgrade, and removal.
 - Documentation explains purpose, prerequisites, installation, configuration,
   operation, limitations, troubleshooting, and uninstall steps.
+- `capsule.yaml` validates against `schema/capsule-install.schema.json` and
+  declares every file placement, migration, root integration edit, validation,
+  and irreversible effect.
+- `INSTALL-PROMPT.md` remains bounded by the manifest and cannot authorize
+  undeclared changes.
 
 ## Dual-lane validation
 

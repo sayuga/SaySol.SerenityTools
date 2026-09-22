@@ -28,6 +28,10 @@ Implementations follow the [tool-capsule architecture](docs/architecture/capsule
 shared cross-capsule infrastructure lives in `Serenity.SaySolShared`, while each
 tool remains independently installable under `src/Tools/`.
 
+Installation is manifest-driven. Each released capsule declares file placement,
+migrations, bounded host edits, validation, upgrade, and uninstall behavior in
+`capsule.yaml`; see the [installation protocol](docs/architecture/manifest-installation.md).
+
 ## Repository map
 
 - `docs/reference/` — version baselines, important framework changes, and upgrade policy

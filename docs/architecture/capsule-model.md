@@ -21,6 +21,8 @@ src/
     └── <ToolCapsule>/
         ├── dotnet/
         ├── ts/
+        ├── capsule.yaml
+        ├── INSTALL-PROMPT.md
         └── README.md
 ```
 
@@ -103,5 +105,12 @@ Every capsule must contain a `README.md` describing:
 - validation and test coverage;
 - upgrade and uninstall procedure.
 
-An optional machine-readable `capsule.yaml` will be added when the first capsule
-API is stabilized. It will support future Toolbelt and Relay installation flows.
+Every installable capsule must also contain:
+
+- `capsule.yaml` — authoritative machine-readable installation manifest;
+- `INSTALL-PROMPT.md` — bounded instructions for an agent or developer consuming
+  the manifest; and
+- an install-receipt contract identifying what was placed or edited in the host.
+
+The manifest schema is maintained at `schema/capsule-install.schema.json`. See
+`docs/architecture/manifest-installation.md` for the installation protocol.

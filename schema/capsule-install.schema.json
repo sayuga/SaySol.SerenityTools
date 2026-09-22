@@ -1,0 +1,290 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sayuga.github.io/SaySol.SerenityTools/schema/capsule-install.schema.json",
+  "title": "SaySol Serenity Tool Capsule Install Manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "capsule",
+    "compatibility",
+    "dependencies",
+    "variables",
+    "installation",
+    "validation",
+    "receipt",
+    "upgrade",
+    "uninstall"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "capsule": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "display_name", "version", "description", "license"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(?:[.-][a-z0-9]+)*$"
+        },
+        "display_name": { "type": "string", "minLength": 1 },
+        "version": {
+          "type": "string",
+          "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:[-+][0-9A-Za-z.-]+)?$"
+        },
+        "description": { "type": "string", "minLength": 1 },
+        "license": { "type": "string", "minLength": 1 },
+        "source_commit": {
+          "type": ["string", "null"],
+          "pattern": "^[0-9a-f]{40}$"
+        }
+      }
+    },
+    "compatibility": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["serenity"],
+      "properties": {
+        "serenity": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["lane", "version", "dotnet", "evidence"],
+            "properties": {
+              "lane": { "type": "string", "minLength": 1 },
+              "version": { "type": "string", "minLength": 1 },
+              "dotnet": { "type": "string", "minLength": 1 },
+              "evidence": {
+                "enum": ["planned", "source-verified", "verified", "incompatible"]
+              }
+            }
+          }
+        },
+        "node": { "type": ["string", "null"] },
+        "package_manager": { "type": ["string", "null"] }
+      }
+    },
+    "dependencies": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["shared", "capsules", "nuget", "npm"],
+      "properties": {
+        "shared": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["required", "version"],
+          "properties": {
+            "required": { "type": "boolean" },
+            "version": { "type": ["string", "null"] }
+          }
+        },
+        "capsules": { "$ref": "#/$defs/packageDependencies" },
+        "nuget": { "$ref": "#/$defs/packageDependencies" },
+        "npm": { "$ref": "#/$defs/packageDependencies" }
+      }
+    },
+    "variables": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["name", "required", "discovery"],
+        "properties": {
+          "name": { "type": "string", "pattern": "^[A-Za-z][A-Za-z0-9]*$" },
+          "required": { "type": "boolean" },
+          "discovery": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["type", "expected_matches"],
+            "properties": {
+              "type": {
+                "enum": ["project-marker", "directory-pattern", "file-pattern", "user-input"]
+              },
+              "markers": {
+                "type": "array",
+                "items": { "type": "string", "minLength": 1 }
+              },
+              "patterns": {
+                "type": "array",
+                "items": { "type": "string", "minLength": 1 }
+              },
+              "expected_matches": { "type": "integer", "minimum": 1, "maximum": 1 }
+            }
+          }
+        }
+      }
+    },
+    "installation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["allowed_write_roots", "files", "migrations", "edits", "human_gates"],
+      "properties": {
+        "allowed_write_roots": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "files": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/fileOperation" }
+        },
+        "migrations": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/migrationOperation" }
+        },
+        "edits": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/editOperation" }
+        },
+        "human_gates": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["id", "reason"],
+            "properties": {
+              "id": { "type": "string", "minLength": 1 },
+              "reason": { "type": "string", "minLength": 1 }
+            }
+          }
+        }
+      }
+    },
+    "validation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["commands", "behavioral_checks"],
+      "properties": {
+        "commands": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["id", "command", "working_directory", "expected_exit_code"],
+            "properties": {
+              "id": { "type": "string", "minLength": 1 },
+              "command": { "type": "string", "minLength": 1 },
+              "working_directory": { "type": "string", "minLength": 1 },
+              "expected_exit_code": { "type": "integer" }
+            }
+          }
+        },
+        "behavioral_checks": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["id", "instruction", "required"],
+            "properties": {
+              "id": { "type": "string", "minLength": 1 },
+              "instruction": { "type": "string", "minLength": 1 },
+              "required": { "type": "boolean" }
+            }
+          }
+        }
+      }
+    },
+    "receipt": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "record_changed_paths", "record_validation", "exclude_sensitive_values"],
+      "properties": {
+        "path": { "type": "string", "minLength": 1 },
+        "record_changed_paths": { "type": "boolean" },
+        "record_validation": { "type": "boolean" },
+        "exclude_sensitive_values": { "const": true }
+      }
+    },
+    "upgrade": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["strategy", "require_existing_receipt", "preserve_user_files"],
+      "properties": {
+        "strategy": { "const": "manifest-diff" },
+        "require_existing_receipt": { "type": "boolean" },
+        "preserve_user_files": { "const": true }
+      }
+    },
+    "uninstall": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "remove_owned_files",
+        "reverse_bounded_edits",
+        "remove_packages_when_unused",
+        "applied_migrations",
+        "human_gate_for_schema_reversal"
+      ],
+      "properties": {
+        "remove_owned_files": { "type": "boolean" },
+        "reverse_bounded_edits": { "type": "boolean" },
+        "remove_packages_when_unused": { "type": "boolean" },
+        "applied_migrations": { "const": "forward-only-no-automatic-rollback" },
+        "human_gate_for_schema_reversal": { "const": true }
+      }
+    }
+  },
+  "$defs": {
+    "packageDependencies": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "version"],
+        "properties": {
+          "id": { "type": "string", "minLength": 1 },
+          "version": { "type": "string", "minLength": 1 },
+          "optional": { "type": "boolean", "default": false }
+        }
+      }
+    },
+    "fileOperation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "operation", "source", "target", "conflict"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "operation": { "const": "copy" },
+        "source": { "type": "string", "minLength": 1 },
+        "target": { "type": "string", "minLength": 1 },
+        "conflict": { "enum": ["fail", "verify-identical", "human-gate"] }
+      }
+    },
+    "migrationOperation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "operation", "source", "target_directory", "ordering", "applied_behavior"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "operation": { "const": "migration-copy" },
+        "source": { "type": "string", "minLength": 1 },
+        "target_directory": { "type": "string", "minLength": 1 },
+        "ordering": { "enum": ["next-sequence", "timestamp", "fixed-name"] },
+        "applied_behavior": { "const": "never-modify" },
+        "human_gate": { "type": ["string", "null"] }
+      }
+    },
+    "editOperation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "operation", "target", "expected_matches", "human_gate", "inverse"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "operation": {
+          "enum": ["merge-json", "insert-after", "insert-before", "add-package", "register-service", "register-navigation", "verify-only"]
+        },
+        "target": { "type": "string", "minLength": 1 },
+        "anchor": { "type": ["string", "null"] },
+        "expected_matches": { "type": "integer", "minimum": 1, "maximum": 1 },
+        "content": { "type": ["string", "null"] },
+        "content_source": { "type": ["string", "null"] },
+        "human_gate": { "type": ["string", "null"] },
+        "inverse": { "type": "string", "minLength": 1 }
+      }
+    }
+  }
+}
