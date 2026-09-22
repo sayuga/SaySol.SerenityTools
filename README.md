@@ -24,6 +24,10 @@ complete wiki census is split between the detailed
 [active-page manifest](docs/wiki-modernization/manifest.yaml) and the
 [141-page archive manifest](docs/wiki-modernization/archive-manifest.md).
 
+Implementations follow the [tool-capsule architecture](docs/architecture/capsule-model.md):
+shared cross-capsule infrastructure lives in `Serenity.SaySolShared`, while each
+tool remains independently installable under `src/Tools/`.
+
 ## Repository map
 
 - `docs/reference/` — version baselines, important framework changes, and upgrade policy

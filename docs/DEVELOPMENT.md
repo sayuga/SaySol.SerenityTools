@@ -3,6 +3,12 @@
 This document explains how a wiki idea becomes a supported SerenityTools
 integration.
 
+The repository follows the [tool-capsule architecture](architecture/capsule-model.md).
+Before implementing a wiki idea, check the
+[consolidation map](wiki-modernization/consolidation-map.md) to determine whether
+it belongs in an existing capsule, a new capsule, Shared, or documentation only.
+Record accepted capsules in the [capsule register](reference/capsule-register.md).
+
 ## Evidence order
 
 1. Tagged Serenity source and official version-matched documentation.
@@ -50,8 +56,12 @@ adapters should be thin and separate when APIs materially differ.
 - `docs/wiki-modernization/` records provenance and decisions.
 - `docs/design/` contains provisional architecture, never install claims.
 - `docs/recipes/` contains versioned, bounded instructions.
-- `src/` contains only implementations with an approved design.
+- `src/Serenity.SaySolShared/` contains proven cross-capsule infrastructure.
+- `src/Tools/<ToolName>/` contains independently installable capsules.
 - `samples/` and `tests/` provide the evidence for compatibility labels.
+
+Code begins inside its owning capsule. It is promoted to Shared only after the
+shared-promotion criteria are met; speculative generalization is not accepted.
 
 When a newer Serenity version is adopted, update the version ledger, re-run the
 affected validation matrix, and narrow compatibility claims if evidence is
