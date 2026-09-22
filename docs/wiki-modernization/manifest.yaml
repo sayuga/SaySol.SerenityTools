@@ -1,5 +1,12 @@
 schema_version: 1
 reviewed_on: 2026-09-22
+scope:
+  status: partial
+  included: active-root-pages
+  included_count: 15
+  pending: wiki-archive
+  pending_count: 141
+  repository_total_count: 156
 source:
   repository: serenity-is/Serenity.wiki
   commit: 1c00f72c177fd7410c9f17d992f4d60115b0163a

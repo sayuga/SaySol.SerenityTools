@@ -22,7 +22,7 @@ using a recipe or package.
 ## Repository map
 
 - `docs/reference/` — version baselines, important framework changes, and upgrade policy
-- `docs/wiki-modernization/` — complete source inventory and modernization ledger
+- `docs/wiki-modernization/` — active-page inventory and expanding modernization ledger
 - `docs/recipes/` — rewritten, versioned, copy-safe integration guides
 - `docs/design/` — package and installer designs that are not yet released code
 - `src/` — reusable packages after a design passes validation
