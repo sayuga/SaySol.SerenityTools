@@ -1,0 +1,161 @@
+schema_version: 1
+reviewed_on: 2026-09-22
+source:
+  repository: serenity-is/Serenity.wiki
+  commit: 1c00f72c177fd7410c9f17d992f4d60115b0163a
+  commit_date: 2025-06-22
+  stated_serenity_version: 8.8.1
+targets:
+  primary: 10.5.2
+  legacy_supported: 9.2.x
+entries:
+  - id: WIKI-001
+    source_file: 'A-proposal-for-"dogfooding"-Serenity-documentation.md'
+    source_url: https://github.com/serenity-is/Serenity/wiki/A-proposal-for-%22dogfooding%22-Serenity-documentation
+    title: In-application help and documentation
+    disposition: research
+    status: inventoried
+    source_compatibility: historical-8.8.1
+    target_compatibility: planned
+    destination: docs/design/in-application-help.md
+    rationale: Valuable product concept; bundled SQL, stored procedures, HTML authoring, role filtering, uploads, and PDF generation require separate security and portability review.
+  - id: WIKI-002
+    source_file: Adding-Excel-Export.md
+    source_url: https://github.com/serenity-is/Serenity/wiki/Adding-Excel-Export
+    title: Excel export
+    disposition: replace-native
+    status: source-verified
+    source_compatibility: historical-8.8.1
+    target_compatibility: source-verified-10.5.2
+    destination: docs/recipes/exporting/excel-export.md
+    rationale: Current Serenity extensions already provide ExcelExportHelper; custom fetch and file-saver code is unnecessary.
+  - id: WIKI-003
+    source_file: Adding-PDF-Export.md
+    source_url: https://github.com/serenity-is/Serenity/wiki/Adding-PDF-Export
+    title: PDF export
+    disposition: replace-native
+    status: inventoried
+    source_compatibility: historical
+    target_compatibility: source-verified-10.5.2
+    destination: docs/recipes/exporting/pdf-export.md
+    rationale: Rewrite around @serenity-is/extensions PdfExportHelper and current option names.
+  - id: WIKI-004
+    source_file: Authenticate-with-Active-Directory-(.Net-Core).md
+    source_url: https://github.com/serenity-is/Serenity/wiki/Authenticate-with-Active-Directory-(.Net-Core)
+    title: Active Directory authentication
+    disposition: research
+    status: inventoried
+    source_compatibility: obsolete-api
+    target_compatibility: planned
+    destination: docs/design/authentication-directory.md
+    rationale: Legacy credential-validation code should not be mechanically ported; modern identity, platform support, secret handling, and deployment topology must be selected first.
+  - id: WIKI-005
+    source_file: BBB:-On-client-side,-fetching-a-value-from-server-side-out-of-database.md
+    source_url: https://github.com/serenity-is/Serenity/wiki/BBB:-On-client-side,-fetching-a-value-from-server-side-out-of-database
+    title: Client-side database value
+    disposition: reject
+    status: empty-source
+    source_compatibility: none
+    target_compatibility: incompatible
+    destination: null
+    rationale: Empty source page.
+  - id: WIKI-006
+    source_file: Conditionally-disable-the-EditLinks-in-a-Detail-Editor-that-is-part-of--MasterDialog-with-a--Parent-Child-Relationship..md
+    source_url: https://github.com/serenity-is/Serenity/wiki/Conditionally-disable-the-EditLinks-in-a-Detail-Editor-that-is-part-of--MasterDialog-with-a--Parent-Child-Relationship.
+    title: Conditional detail edit links
+    disposition: reject
+    status: empty-source
+    source_compatibility: none
+    target_compatibility: incompatible
+    destination: null
+    rationale: Empty source page.
+  - id: WIKI-007
+    source_file: Custom-pager-with-only-next-previous-mode-(version-2).md
+    source_url: https://github.com/serenity-is/Serenity/wiki/Custom-pager-with-only-next-previous-mode-(version-2)
+    title: Next/previous pager
+    disposition: modernize
+    status: inventoried
+    source_compatibility: historical
+    target_compatibility: planned
+    destination: docs/recipes/grids/next-previous-pager.md
+    rationale: Concept remains useful; DOM, grid, registration, and lifecycle APIs require current verification.
+  - id: WIKI-008
+    source_file: DatabaseUploadStorage.md
+    source_url: https://github.com/serenity-is/Serenity/wiki/DatabaseUploadStorage
+    title: Database upload storage
+    disposition: research
+    status: inventoried
+    source_compatibility: partial-8.8.1
+    target_compatibility: source-review-required
+    destination: docs/design/database-upload-storage.md
+    rationale: Interface still exists, but the sample has incomplete methods and needs streaming, concurrency, metadata, archive, transaction, security, and migration design.
+  - id: WIKI-009
+    source_file: Exception-log-for-non-premium-users-(ElmahCore).md
+    source_url: https://github.com/serenity-is/Serenity/wiki/Exception-log-for-non-premium-users-(ElmahCore)
+    title: Exception logging with ElmahCore
+    disposition: research
+    status: inventoried
+    source_compatibility: historical
+    target_compatibility: planned
+    destination: docs/design/exception-logging.md
+    rationale: Must be reviewed against current ASP.NET Core logging, authorization, package maintenance, data retention, and sensitive-data exposure.
+  - id: WIKI-010
+    source_file: Home.md
+    source_url: https://github.com/serenity-is/Serenity/wiki/Home
+    title: Wiki home
+    disposition: meta
+    status: inventoried
+    source_compatibility: 8.8.1
+    target_compatibility: not-applicable
+    destination: null
+    rationale: Navigation and contribution guidance, not an integration.
+  - id: WIKI-011
+    source_file: ReadOnly-Binding-Utils.md
+    source_url: https://github.com/serenity-is/Serenity/wiki/ReadOnly-Binding-Utils
+    title: Read-only binding utilities
+    disposition: reject
+    status: placeholder-source
+    source_compatibility: none
+    target_compatibility: incompatible
+    destination: null
+    rationale: Source contains no usable technical content.
+  - id: WIKI-012
+    source_file: Serenity-Service-Handlers-(Serenity-Framework-Repository-in-old-versions)-overridable-methods-and-calling-sequence.md
+    source_url: https://github.com/serenity-is/Serenity/wiki/Serenity-Service-Handlers-(Serenity-Framework-Repository-in-old-versions)-overridable-methods-and-calling-sequence
+    title: Request handler lifecycle
+    disposition: modernize
+    status: inventoried
+    source_compatibility: explicitly-old
+    target_compatibility: planned-10.5.x
+    destination: docs/reference/request-handler-lifecycle.md
+    rationale: Serenity 10.5.0 introduced async handler families and changed behavior contracts; the old call sequence cannot be reused as current guidance.
+  - id: WIKI-013
+    source_file: UI:-Slider-dialog-(poor-man's-EntityGridDialog).md
+    source_url: https://github.com/serenity-is/Serenity/wiki/UI:-Slider-dialog-(poor-man's-EntityGridDialog)
+    title: Slider dialog
+    disposition: reject
+    status: placeholder-source
+    source_compatibility: none
+    target_compatibility: incompatible
+    destination: null
+    rationale: Source contains no usable technical content.
+  - id: WIKI-014
+    source_file: _Footer.md.md
+    source_url: https://github.com/serenity-is/Serenity/wiki/_Footer
+    title: Wiki footer
+    disposition: meta
+    status: inventoried
+    source_compatibility: not-applicable
+    target_compatibility: not-applicable
+    destination: null
+    rationale: Wiki presentation metadata.
+  - id: WIKI-015
+    source_file: _Sidebar.md
+    source_url: https://github.com/serenity-is/Serenity/wiki/_Sidebar
+    title: Wiki sidebar
+    disposition: meta
+    status: inventoried
+    source_compatibility: not-applicable
+    target_compatibility: not-applicable
+    destination: null
+    rationale: Wiki navigation metadata.
