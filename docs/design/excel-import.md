@@ -1,6 +1,10 @@
 # Excel import package design
 
+Manifest: `ARC-053`
+
 Status: design only; no installable package has been published.
+
+Source article: [Excel Import Extended — Column Mapping and Import Value Type Handling](https://github.com/serenity-is/Serenity/wiki/Excel-Import-Extended---Column-Mapping-and-Import-Value-Type-Handling)
 
 ## Goal
 
@@ -33,6 +37,35 @@ buttons.push(createExcelImportButton({
 
 The exact API is provisional. It must be proven against generated Serenity
 types before becoming public.
+
+## What is retained from the archived implementation
+
+The archived article contains several ideas worth carrying forward:
+
+- Match workbook columns to application fields instead of depending on column order.
+- Allow missing optional columns without corrupting the target row.
+- Route values through type-specific conversion and validation.
+- Support lookup resolution from one or several source columns.
+- Return row-specific warnings and conversion failures to the user.
+- Separate reusable import infrastructure from entity-specific mapping policy.
+
+## What must be replaced
+
+The legacy implementation depends on namespace-style TypeScript, decorators,
+`Q` helpers, display titles as persistent mapping keys, manual per-field switch
+blocks, `dynamic`/`object` values, and direct insertion of related records during
+conversion. Those patterns are too brittle for a reusable current package.
+
+The modern package must instead use stable field identifiers plus explicit
+aliases, typed conversion results, a preview token, deterministic lookup policy,
+and a transaction-controlled commit stage. Creating a missing lookup row must be
+an explicit profile policy and visible preview action—not a conversion side
+effect.
+
+The Serenity 10.5.2 public source includes the shared `ExcelImportRequest` and
+`ExcelImportResponse` contracts and uses ClosedXML for spreadsheet work. It does
+not provide the reusable column-mapping workflow described here, so this remains
+a valid SaySol tool rather than a duplicate of a complete native feature.
 
 ## Workflow
 

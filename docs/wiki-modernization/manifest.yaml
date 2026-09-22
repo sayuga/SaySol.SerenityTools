@@ -1,11 +1,12 @@
 schema_version: 1
 reviewed_on: 2026-09-22
 scope:
-  status: partial
-  included: active-root-pages
+  status: complete-with-companion-archive-manifest
+  included: active-root-pages-detailed
   included_count: 15
-  pending: wiki-archive
-  pending_count: 141
+  companion_manifest: docs/wiki-modernization/archive-manifest.md
+  companion_status: triaged
+  companion_count: 141
   repository_total_count: 156
 source:
   repository: serenity-is/Serenity.wiki

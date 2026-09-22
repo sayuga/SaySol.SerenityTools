@@ -4,11 +4,11 @@ The upstream Serenity wiki is community-maintained and distinct from official
 framework documentation. Its current repository snapshot contains 156 Markdown
 files: 15 active root files and 141 files retained under `wiki-archive/`.
 
-The first-pass manifest currently covers only the 15 active root files. It is
-therefore an active-page manifest, not yet a complete wiki manifest. The archive
-census and technical review must be completed before this project claims full
-wiki coverage. The archive includes useful material such as the extended Excel
-import and column-mapping article.
+The YAML manifest covers the 15 active root files in detail. The companion
+`archive-manifest.md` accounts for all 141 archived files and gives each an
+initial category and disposition. Together they provide complete file-level
+coverage of the current 156-file snapshot. Archive entries marked `triaged`
+still require current-source verification before they can claim compatibility.
 
 ## Source baseline
 
@@ -29,5 +29,6 @@ import and column-mapping article.
 - `reject`: empty, placeholder, unsafe, or too incomplete to publish as guidance.
 - `meta`: wiki navigation or contribution content, not a product integration.
 
-The machine-readable source of truth for the completed scope is `manifest.yaml`.
-Modernized recipes must link back to their manifest ID and source URL.
+The machine-readable active-page source of truth is `manifest.yaml`; the full
+archive census is `archive-manifest.md`. Modernized recipes must link back to
+their manifest ID and source URL.

@@ -19,6 +19,11 @@ explicit Serenity compatibility lane.
 See [the compatibility matrix](docs/reference/compatibility-matrix.md) before
 using a recipe or package.
 
+Contributors should follow the [development guide](docs/DEVELOPMENT.md). The
+complete wiki census is split between the detailed
+[active-page manifest](docs/wiki-modernization/manifest.yaml) and the
+[141-page archive manifest](docs/wiki-modernization/archive-manifest.md).
+
 ## Repository map
 
 - `docs/reference/` — version baselines, important framework changes, and upgrade policy
