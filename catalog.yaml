@@ -1,0 +1,44 @@
+schema_version: "1.0"
+
+toolset:
+  id: "saysol.serenitytools"
+  display_name: "SaySol SerenityTools"
+  catalog_version: "0.1.0"
+  minimum_importer_version: "0.1.0"
+
+defaults:
+  lockfile: ".saysol/saysol.lock.yaml"
+  receipt_directory: ".saysol/installed"
+  transaction_directory: ".saysol/transactions"
+  ownership_marker: "saysol-managed"
+
+compatibility_lanes:
+  net8:
+    serenity: ">=9.2.0 <10.0.0"
+    dotnet: "8.0"
+    adapter: "Serenity9"
+  net10:
+    serenity: ">=10.5.0 <11.0.0"
+    dotnet: "10.0"
+    adapter: "Serenity10"
+
+capsules:
+  - id: "saysol.serenity.spreadsheet-import"
+    display_name: "Spreadsheet Import"
+    version: null
+    maturity: "design"
+    delivery: "combined"
+    manifest: null
+    documentation: "docs/design/excel-import.md"
+    summary: "Upload, preview, map, validate, and commit spreadsheet data."
+
+  - id: "saysol.serenity.grid-export"
+    display_name: "Grid Export"
+    version: null
+    maturity: "recipe"
+    delivery: "recipe"
+    manifest: null
+    documentation: "docs/recipes/exporting/excel-export.md"
+    summary: "Use Serenity's native Excel export path from a grid."
+
+shared_components: []

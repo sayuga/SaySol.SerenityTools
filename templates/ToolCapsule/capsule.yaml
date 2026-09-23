@@ -1,4 +1,4 @@
-schema_version: "1.0"
+schema_version: "1.1"
 
 capsule:
   id: "saysol.serenity.example"
@@ -6,6 +6,7 @@ capsule:
   version: "0.1.0"
   description: "Replace with the capsule purpose."
   license: "MIT"
+  delivery: "source-copy"
   source_commit: null
 
 compatibility:
@@ -20,6 +21,7 @@ compatibility:
       evidence: "planned"
   node: null
   package_manager: null
+  required_capabilities: []
 
 dependencies:
   shared:
@@ -28,6 +30,13 @@ dependencies:
   capsules: []
   nuget: []
   npm: []
+  conflicts: []
+  supersedes: []
+  integrates_with: []
+  provided_by_host: []
+
+ownership:
+  claims: []
 
 variables:
   - name: "WebProjectPath"

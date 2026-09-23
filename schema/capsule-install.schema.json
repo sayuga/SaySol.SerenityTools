@@ -14,16 +14,17 @@
     "validation",
     "receipt",
     "upgrade",
-    "uninstall"
+    "uninstall",
+    "ownership"
   ],
   "properties": {
     "schema_version": {
-      "const": "1.0"
+      "const": "1.1"
     },
     "capsule": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["id", "display_name", "version", "description", "license"],
+      "required": ["id", "display_name", "version", "description", "license", "delivery"],
       "properties": {
         "id": {
           "type": "string",
@@ -36,6 +37,9 @@
         },
         "description": { "type": "string", "minLength": 1 },
         "license": { "type": "string", "minLength": 1 },
+        "delivery": {
+          "enum": ["source-copy", "nuget", "npm", "combined", "migration-only"]
+        },
         "source_commit": {
           "type": ["string", "null"],
           "pattern": "^[0-9a-f]{40}$"
@@ -65,13 +69,18 @@
           }
         },
         "node": { "type": ["string", "null"] },
-        "package_manager": { "type": ["string", "null"] }
+        "package_manager": { "type": ["string", "null"] },
+        "required_capabilities": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "type": "string", "minLength": 1 }
+        }
       }
     },
     "dependencies": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["shared", "capsules", "nuget", "npm"],
+      "required": ["shared", "capsules", "nuget", "npm", "conflicts", "supersedes", "integrates_with", "provided_by_host"],
       "properties": {
         "shared": {
           "type": "object",
@@ -84,7 +93,31 @@
         },
         "capsules": { "$ref": "#/$defs/packageDependencies" },
         "nuget": { "$ref": "#/$defs/packageDependencies" },
-        "npm": { "$ref": "#/$defs/packageDependencies" }
+        "npm": { "$ref": "#/$defs/packageDependencies" },
+        "conflicts": { "$ref": "#/$defs/idList" },
+        "supersedes": { "$ref": "#/$defs/idList" },
+        "integrates_with": { "$ref": "#/$defs/idList" },
+        "provided_by_host": { "$ref": "#/$defs/idList" }
+      }
+    },
+    "ownership": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["claims"],
+      "properties": {
+        "claims": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["kind", "key", "policy"],
+            "properties": {
+              "kind": { "enum": ["path", "route", "permission", "navigation", "type-key", "database-object", "configuration"] },
+              "key": { "type": "string", "minLength": 1 },
+              "policy": { "enum": ["exclusive", "shared-merge", "host-owned"] }
+            }
+          }
+        }
       }
     },
     "variables": {
@@ -241,6 +274,11 @@
           "optional": { "type": "boolean", "default": false }
         }
       }
+    },
+    "idList": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": { "type": "string", "minLength": 1 }
     },
     "fileOperation": {
       "type": "object",

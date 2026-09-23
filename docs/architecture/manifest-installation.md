@@ -2,6 +2,10 @@
 
 Status: accepted architecture baseline
 
+The root catalog and multi-capsule resolution contract are documented in
+[toolset import orchestration](import-orchestration.md). This document governs
+the narrower, per-capsule operation contract.
+
 ## Purpose
 
 Every installable tool capsule carries a `capsule.yaml`. The manifest tells a
@@ -18,7 +22,9 @@ A complete manifest declares:
 - capsule identity and version;
 - compatible Serenity, .NET, and Node/package-manager lanes;
 - required Shared version and optional capsule dependencies;
+- conflicts, superseded capsules, optional integrations, and host-provided capabilities;
 - NuGet and npm dependencies;
+- ownership claims for paths and integration keys;
 - variables that must be resolved from the target project;
 - source files and exact destination templates;
 - migration files, destination, ordering, and forward-only behavior;

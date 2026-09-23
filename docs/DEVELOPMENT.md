@@ -46,6 +46,11 @@ A compiling legacy snippet is not evidence of a supported design.
   and irreversible effect.
 - `INSTALL-PROMPT.md` remains bounded by the manifest and cannot authorize
   undeclared changes.
+- Root `catalog.yaml` lists the capsule once, with one canonical delivery type
+  and a maturity that reflects its evidence.
+- Capsule ownership claims do not collide with another released capsule.
+- The dry-run resolver succeeds for every claimed host lane and required
+  dependency combination before release.
 
 ## Dual-lane validation
 

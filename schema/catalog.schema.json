@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sayuga.github.io/SaySol.SerenityTools/schema/catalog.schema.json",
+  "title": "SaySol SerenityTools Catalog",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "toolset", "defaults", "compatibility_lanes", "capsules", "shared_components"],
+  "properties": {
+    "schema_version": { "const": "1.0" },
+    "toolset": { "type": "object" },
+    "defaults": { "type": "object" },
+    "compatibility_lanes": { "type": "object", "minProperties": 1 },
+    "capsules": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/catalogItem" }
+    },
+    "shared_components": { "type": "array" }
+  },
+  "$defs": {
+    "catalogItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "display_name", "version", "maturity", "delivery", "manifest", "documentation", "summary"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^[a-z0-9]+(?:[.-][a-z0-9]+)*$" },
+        "display_name": { "type": "string", "minLength": 1 },
+        "version": { "type": ["string", "null"] },
+        "maturity": { "enum": ["planned", "design", "recipe", "implemented", "verified", "released", "retired"] },
+        "delivery": { "enum": ["source-copy", "nuget", "npm", "combined", "recipe", "migration-only"] },
+        "manifest": { "type": ["string", "null"] },
+        "documentation": { "type": "string", "minLength": 1 },
+        "summary": { "type": "string", "minLength": 1 }
+      }
+    }
+  }
+}

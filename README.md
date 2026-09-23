@@ -31,6 +31,11 @@ tool remains independently installable under `src/Tools/`.
 Installation is manifest-driven. Each released capsule declares file placement,
 migrations, bounded host edits, validation, upgrade, and uninstall behavior in
 `capsule.yaml`; see the [installation protocol](docs/architecture/manifest-installation.md).
+The root [catalog](catalog.yaml) controls discovery and the
+[import prompt](IMPORT-PROMPT.md) drives selection. Multi-capsule compatibility,
+dependencies, host capabilities, and ownership collisions can be checked with
+the read-only [resolver](tools/resolve_install.py); see the
+[orchestration design](docs/architecture/import-orchestration.md).
 
 ## Repository map
 
@@ -41,6 +46,8 @@ migrations, bounded host edits, validation, upgrade, and uninstall behavior in
 - `src/` — reusable packages after a design passes validation
 - `tests/` — package-level and Serenity-host integration tests
 - `samples/` — minimal Serenity host applications used to prove installation
+- `schema/` — catalog, capsule, host-facts, and lockfile contracts
+- `tools/` — read-only resolution now; transactional install tooling later
 
 ## Modernization rule
 

@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sayuga.github.io/SaySol.SerenityTools/schema/host-facts.schema.json",
+  "title": "SaySol SerenityTools Host Facts",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["repository", "serenity_version", "dotnet_version", "capabilities"],
+  "properties": {
+    "repository": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["root", "branch", "head", "worktree_clean"],
+      "properties": {
+        "root": { "type": "string", "minLength": 1 },
+        "branch": { "type": "string", "minLength": 1 },
+        "head": { "type": "string", "pattern": "^[0-9a-f]{40}$" },
+        "worktree_clean": { "type": "boolean" }
+      }
+    },
+    "serenity_version": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+" },
+    "dotnet_version": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+" },
+    "node_version": { "type": ["string", "null"] },
+    "package_manager": { "type": ["string", "null"] },
+    "capabilities": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": { "type": "string", "minLength": 1 }
+    }
+  }
+}

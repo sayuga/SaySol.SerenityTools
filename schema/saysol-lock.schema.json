@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sayuga.github.io/SaySol.SerenityTools/schema/saysol-lock.schema.json",
+  "title": "SaySol SerenityTools Lockfile",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "toolset", "host", "capsules", "shared_components"],
+  "properties": {
+    "schema_version": { "const": "1.0" },
+    "toolset": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["catalog_version", "source_commit"],
+      "properties": {
+        "catalog_version": { "$ref": "#/$defs/version" },
+        "source_commit": { "$ref": "#/$defs/sha" }
+      }
+    },
+    "host": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["serenity_version", "dotnet_version", "lane"],
+      "properties": {
+        "serenity_version": { "$ref": "#/$defs/version" },
+        "dotnet_version": { "type": "string", "minLength": 1 },
+        "lane": { "type": "string", "minLength": 1 }
+      }
+    },
+    "capsules": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/lockedItem" }
+    },
+    "shared_components": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/lockedItem" }
+    }
+  },
+  "$defs": {
+    "version": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:[-+][0-9A-Za-z.-]+)?$" },
+    "sha": { "type": "string", "pattern": "^[0-9a-f]{40}$" },
+    "lockedItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "version", "source_commit", "manifest_sha256", "receipt"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "version": { "$ref": "#/$defs/version" },
+        "source_commit": { "$ref": "#/$defs/sha" },
+        "manifest_sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+        "receipt": { "type": "string", "minLength": 1 }
+      }
+    }
+  }
+}
