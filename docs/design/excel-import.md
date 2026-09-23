@@ -2,7 +2,11 @@
 
 Manifest: `ARC-053`
 
-Status: design only; no installable package has been published.
+Status: framework-light core implemented at `src/Tools/SpreadsheetImport`; no
+installable or compatibility-verified package has been published.
+
+The capsule README and validation ladder are now the implementation authority.
+This document retains the broader design rationale.
 
 Source article: [Excel Import Extended — Column Mapping and Import Value Type Handling](https://github.com/serenity-is/Serenity/wiki/Excel-Import-Extended---Column-Mapping-and-Import-Value-Type-Handling)
 

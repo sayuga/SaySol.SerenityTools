@@ -25,11 +25,11 @@ compatibility_lanes:
 capsules:
   - id: "saysol.serenity.spreadsheet-import"
     display_name: "Spreadsheet Import"
-    version: null
-    maturity: "design"
+    version: "0.1.0"
+    maturity: "implemented"
     delivery: "combined"
-    manifest: null
-    documentation: "docs/design/excel-import.md"
+    manifest: "src/Tools/SpreadsheetImport/capsule.yaml"
+    documentation: "src/Tools/SpreadsheetImport/README.md"
     summary: "Upload, preview, map, validate, and commit spreadsheet data."
 
   - id: "saysol.serenity.grid-export"

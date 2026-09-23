@@ -8,7 +8,7 @@ with `capsule.yaml`; it does not mean the manifest or implementation exists yet.
 
 | Capsule | State | Install manifest | Primary scope | Shared dependency candidates |
 | --- | --- | --- | --- | --- |
-| `SpreadsheetImport` | Design | Required | Upload, map, preview, validate, and commit spreadsheet data | Results, validation contracts, compatibility adapter; temporary tokens remain local initially |
+| `SpreadsheetImport` | Implemented core; unverified | Present (installation blocked) | Upload, map, preview, validate, and commit spreadsheet data | Results, validation contracts, compatibility adapter; temporary tokens remain local initially |
 | `GridExport` | Recipe/analysis | Required if packaged | Native Excel/PDF export plus reviewed CSV option | None until custom cross-format code is demonstrated |
 | `NotificationCenter` | Planned | Required | Real-time user/group notifications and notification UI | Current user, permission abstraction, results |
 | `LookupToolkit` | Planned | Required | Lookup filtering, parameters, refresh, cache invalidation, and grid use | Stable field identifiers, results |

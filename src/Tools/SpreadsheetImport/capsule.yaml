@@ -1,0 +1,107 @@
+schema_version: "1.1"
+
+capsule:
+  id: "saysol.serenity.spreadsheet-import"
+  display_name: "Spreadsheet Import"
+  version: "0.1.0"
+  description: "Deterministic spreadsheet mapping and import workflow contracts."
+  license: "MIT"
+  delivery: "combined"
+  source_commit: null
+
+compatibility:
+  serenity:
+    - lane: "net8"
+      version: ">=9.2.0 <10.0.0"
+      dotnet: "8.0"
+      evidence: "planned"
+    - lane: "net10"
+      version: ">=10.5.0 <11.0.0"
+      dotnet: "10.0"
+      evidence: "planned"
+  node: null
+  package_manager: null
+  required_capabilities:
+    - "temporary-file-storage"
+    - "permission-service"
+    - "database-transactions"
+
+dependencies:
+  shared:
+    required: false
+    version: null
+  capsules: []
+  nuget: []
+  npm: []
+  conflicts: []
+  supersedes: []
+  integrates_with:
+    - "saysol.serenity.audit-trail"
+    - "saysol.serenity.file-transfer"
+  provided_by_host:
+    - "temporary-file-storage"
+    - "permission-service"
+    - "database-transactions"
+
+ownership:
+  claims:
+    - kind: "type-key"
+      key: "SaySol.SpreadsheetImport"
+      policy: "exclusive"
+    - kind: "route"
+      key: "Services/SaySol/SpreadsheetImport"
+      policy: "exclusive"
+    - kind: "configuration"
+      key: "SaySol:SpreadsheetImport"
+      policy: "shared-merge"
+
+variables:
+  - name: "WebProjectPath"
+    required: true
+    discovery:
+      type: "project-marker"
+      markers:
+        - "serenity.config.json"
+        - "package.json"
+      expected_matches: 1
+  - name: "CompatibilityLane"
+    required: true
+    discovery:
+      type: "user-input"
+      expected_matches: 1
+
+installation:
+  allowed_write_roots:
+    - "{{WebProjectPath}}/Modules/SaySol/SpreadsheetImport"
+    - ".saysol/installed"
+  files: []
+  migrations: []
+  edits: []
+  human_gates:
+    - id: "capsule-not-yet-verified"
+      reason: "Installation remains blocked until a proven lane-specific manifest replaces this scaffold."
+
+validation:
+  commands: []
+  behavioral_checks:
+    - id: "dual-lane-proof-required"
+      instruction: "Complete every check in VALIDATION.md for the selected lane."
+      required: true
+
+receipt:
+  path: ".saysol/installed/{{capsule.id}}.json"
+  record_changed_paths: true
+  record_validation: true
+  exclude_sensitive_values: true
+
+upgrade:
+  strategy: "manifest-diff"
+  require_existing_receipt: true
+  preserve_user_files: true
+
+uninstall:
+  remove_owned_files: true
+  reverse_bounded_edits: true
+  remove_packages_when_unused: true
+  applied_migrations: "forward-only-no-automatic-rollback"
+  human_gate_for_schema_reversal: true
