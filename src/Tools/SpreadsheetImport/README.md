@@ -43,6 +43,7 @@ The root resolver therefore rejects this capsule while its catalog maturity is
 - `capsule.yaml` — bounded installation intent.
 - `INSTALL-PROMPT.md` — capsule-specific prompt boundary.
 - `VALIDATION.md` — evidence required before release.
+- `EVIDENCE.md` — immutable build/test evidence and its exact scope.
 
 ## Shared decision
 
