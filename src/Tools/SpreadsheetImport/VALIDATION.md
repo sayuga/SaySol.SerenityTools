@@ -3,6 +3,10 @@
 The capsule must not be marked `verified` until both host lanes complete the
 same evidence ladder.
 
+The repository CI compiles and executes the framework-light core proof under
+both .NET 8 and .NET 10 and type-checks the transport contracts. Those checks
+protect the core but do not satisfy the Serenity-host rows below.
+
 | Stage | Serenity 9.2 / .NET 8 | Serenity 10.5 / .NET 10 |
 | --- | --- | --- |
 | Manifest and ownership validation | Pending | Pending |
