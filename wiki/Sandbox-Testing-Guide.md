@@ -1,7 +1,8 @@
 # Sandbox Testing Guide
 
 The sandbox is the canonical clean control host. The current manifest says
-candidate-unvalidated; it is not an approved baseline.
+candidate-scaffold-unvalidated; it is neither a validated generated host nor an
+approved baseline.
 
 **Do not test a SaySol tool against a sandbox that has not first passed baseline validation.**
 

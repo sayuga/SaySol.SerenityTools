@@ -1,13 +1,15 @@
 schema_version: 1
 id: saysol-serenity-disposable-sandbox
 baseline_version: 1.0.0-candidate.1
-state: candidate-unvalidated
+state: candidate-scaffold-unvalidated
 approved: false
 approval: { owner: null, approved_at: null, tag: null }
 provenance:
   template_package: Serene.Templates
   template_version: 10.3.7
   note: Public template dependency-upgrade candidate pinned to Serenity 10.5.2.
+  generation_status: pending-dotnet-enabled-environment
+  generated_host_validated: false
 runtime: { dotnet_sdk: 10.0.x, target_framework: net10.0, node: 24.x, npm: 11.x }
 serenity:
   minimum_supported: 10.5.0

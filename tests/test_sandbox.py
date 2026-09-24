@@ -11,7 +11,8 @@ ROOT = Path(__file__).resolve().parents[1]
 class SandboxContractTests(unittest.TestCase):
     def test_candidate_is_not_falsely_approved(self):
         manifest = yaml.safe_load((ROOT / "sandbox/manifest.yaml").read_text())
-        self.assertEqual("candidate-unvalidated", manifest["state"])
+        self.assertEqual("candidate-scaffold-unvalidated", manifest["state"])
+        self.assertFalse(manifest["provenance"]["generated_host_validated"])
         self.assertFalse(manifest["approved"])
         self.assertEqual([], manifest["control_host"]["capsules_installed"])
         self.assertGreaterEqual(tuple(map(int, manifest["serenity"]["minimum_supported"].split("."))), (10, 5, 0))
