@@ -7,3 +7,6 @@
 
 - [Spreadsheet Import](Spreadsheet-Import.md)
 - [Grid Export](Grid-Export.md)
+- [Theme Kits](Theme-Kits.md)
+- [Widget Library](Widget-Library.md)
+- [Admin Configuration](Admin-Configuration.md)

@@ -1,0 +1,70 @@
+schema_version: "1.1"
+capsule:
+  id: "saysol.serenity.theme-kits"
+  display_name: "Theme Kits"
+  version: "0.1.0"
+  description: "Semantic theme tokens with Light, Dark, Logistics, and Future kits."
+  license: "MIT"
+  delivery: "npm"
+  source_commit: null
+compatibility:
+  serenity:
+    - lane: "net8"
+      version: ">=9.2.0 <10.0.0"
+      dotnet: "8.0"
+      evidence: "planned"
+    - lane: "net10"
+      version: ">=10.5.0 <11.0.0"
+      dotnet: "10.0"
+      evidence: "planned"
+  node: ">=20"
+  package_manager: "npm"
+  required_capabilities: []
+dependencies:
+  shared: { required: false, version: null }
+  capsules: []
+  nuget: []
+  npm: []
+  conflicts: []
+  supersedes: []
+  integrates_with:
+    - "saysol.serenity.widget-library"
+    - "saysol.serenity.admin-configuration"
+  provided_by_host: []
+ownership:
+  claims:
+    - { kind: "type-key", key: "SaySol.ThemeKits", policy: "exclusive" }
+    - { kind: "configuration", key: "SaySol:Theme", policy: "shared-merge" }
+variables:
+  - name: "WebProjectPath"
+    required: true
+    discovery:
+      type: "project-marker"
+      markers: ["serenity.config.json", "package.json"]
+      expected_matches: 1
+installation:
+  allowed_write_roots: ["{{WebProjectPath}}", ".saysol/installed"]
+  files: []
+  migrations: []
+  edits: []
+  human_gates:
+    - id: "capsule-not-yet-verified"
+      reason: "Serenity layout coverage and accessibility have not been host-tested."
+validation:
+  commands: []
+  behavioral_checks:
+    - id: "theme-host-proof"
+      instruction: "Validate all four themes, keyboard focus, contrast, charts, dialogs, grids, forms, and responsive layout."
+      required: true
+receipt:
+  path: ".saysol/installed/{{capsule.id}}.json"
+  record_changed_paths: true
+  record_validation: true
+  exclude_sensitive_values: true
+upgrade: { strategy: "manifest-diff", require_existing_receipt: true, preserve_user_files: true }
+uninstall:
+  remove_owned_files: true
+  reverse_bounded_edits: true
+  remove_packages_when_unused: true
+  applied_migrations: "forward-only-no-automatic-rollback"
+  human_gate_for_schema_reversal: true

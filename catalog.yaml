@@ -41,4 +41,31 @@ capsules:
     documentation: "docs/recipes/exporting/excel-export.md"
     summary: "Use Serenity's native Excel export path from a grid."
 
+  - id: "saysol.serenity.theme-kits"
+    display_name: "Theme Kits"
+    version: "0.1.0"
+    maturity: "implemented"
+    delivery: "npm"
+    manifest: "src/Tools/ThemeKits/capsule.yaml"
+    documentation: "src/Tools/ThemeKits/README.md"
+    summary: "Composable Light, Dark, Logistics, and Future design-token themes."
+
+  - id: "saysol.serenity.widget-library"
+    display_name: "Widget Library"
+    version: "0.1.0"
+    maturity: "implemented"
+    delivery: "npm"
+    manifest: "src/Tools/WidgetLibrary/capsule.yaml"
+    documentation: "src/Tools/WidgetLibrary/README.md"
+    summary: "Typed, safe DOM builders for common dashboard and content widgets."
+
+  - id: "saysol.serenity.admin-configuration"
+    display_name: "Admin Configuration"
+    version: "0.1.0"
+    maturity: "implemented"
+    delivery: "combined"
+    manifest: "src/Tools/AdminConfiguration/capsule.yaml"
+    documentation: "src/Tools/AdminConfiguration/README.md"
+    summary: "Admin-only landing page contracts for safe application configuration."
+
 shared_components: []

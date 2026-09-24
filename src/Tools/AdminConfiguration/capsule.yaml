@@ -1,0 +1,70 @@
+schema_version: "1.1"
+capsule:
+  id: "saysol.serenity.admin-configuration"
+  display_name: "Admin Configuration"
+  version: "0.1.0"
+  description: "Admin-only safe application configuration landing page contracts."
+  license: "MIT"
+  delivery: "combined"
+  source_commit: null
+compatibility:
+  serenity:
+    - { lane: "net8", version: ">=9.2.0 <10.0.0", dotnet: "8.0", evidence: "planned" }
+    - { lane: "net10", version: ">=10.5.0 <11.0.0", dotnet: "10.0", evidence: "planned" }
+  node: ">=20"
+  package_manager: "npm"
+  required_capabilities: ["permission-service", "configuration-provider"]
+dependencies:
+  shared: { required: false, version: null }
+  capsules: []
+  nuget: []
+  npm: []
+  conflicts: []
+  supersedes: []
+  integrates_with: ["saysol.serenity.theme-kits", "saysol.serenity.widget-library", "saysol.serenity.audit-trail"]
+  provided_by_host: ["permission-service", "configuration-provider"]
+ownership:
+  claims:
+    - { kind: "type-key", key: "SaySol.AdminConfiguration", policy: "exclusive" }
+    - { kind: "route", key: "Administration/Configuration", policy: "exclusive" }
+    - { kind: "permission", key: "Administration:Configuration", policy: "exclusive" }
+    - { kind: "navigation", key: "Administration/Configuration", policy: "exclusive" }
+    - { kind: "configuration", key: "SaySol:AdminConfiguration", policy: "shared-merge" }
+variables:
+  - name: "WebProjectPath"
+    required: true
+    discovery:
+      type: "project-marker"
+      markers: ["serenity.config.json", "package.json"]
+      expected_matches: 1
+installation:
+  allowed_write_roots: ["{{WebProjectPath}}", ".saysol/installed"]
+  files: []
+  migrations: []
+  edits: []
+  human_gates:
+    - id: "capsule-not-yet-verified"
+      reason: "Authorization, persistence, navigation, and database-profile behavior are not host-tested."
+    - id: "approve-database-profile-switch"
+      reason: "Changing an active database profile can affect availability and data integrity."
+validation:
+  commands: []
+  behavioral_checks:
+    - id: "admin-authorization"
+      instruction: "Prove unauthorized page, read, update, probe, and profile-switch requests are denied server-side."
+      required: true
+    - id: "secret-exclusion"
+      instruction: "Prove responses, logs, persistence, and receipts contain no connection strings or secret values."
+      required: true
+receipt:
+  path: ".saysol/installed/{{capsule.id}}.json"
+  record_changed_paths: true
+  record_validation: true
+  exclude_sensitive_values: true
+upgrade: { strategy: "manifest-diff", require_existing_receipt: true, preserve_user_files: true }
+uninstall:
+  remove_owned_files: true
+  reverse_bounded_edits: true
+  remove_packages_when_unused: true
+  applied_migrations: "forward-only-no-automatic-rollback"
+  human_gate_for_schema_reversal: true

@@ -9,6 +9,9 @@ companion and must not claim a higher maturity than the catalog.
 | --- | --- | --- | --- | --- |
 | Spreadsheet Import | Implemented | Combined .NET/TypeScript | No | [Guide](Spreadsheet-Import.md) |
 | Grid Export | Recipe | Recipe | No capsule required | [Guide](Grid-Export.md) |
+| Theme Kits | Implemented | npm | No—host verification pending | [Guide](Theme-Kits.md) |
+| Widget Library | Implemented | npm | No—host verification pending | [Guide](Widget-Library.md) |
+| Admin Configuration | Implemented | Combined .NET/TypeScript | No—host verification pending | [Guide](Admin-Configuration.md) |
 
 ## Planned capsule families
 

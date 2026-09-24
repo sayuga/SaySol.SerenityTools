@@ -28,6 +28,9 @@ with `capsule.yaml`; it does not mean the manifest or implementation exists yet.
 | `OptimisticConcurrency` | Research | Required if implemented | Row-version conflict detection and UX | Conflict result contract |
 | `MultiDatabaseRouting` | Research | Required if implemented | Controlled database/tenant routing | Connection context if reused |
 | `InAppHelp` | Research | Required if implemented | Optional help authoring and contextual help | Authorization and storage contracts after proven reuse |
+| `ThemeKits` | Implemented core; unverified | Present (installation blocked) | Design tokens and Light, Dark, Logistics, and Future theme kits | Theme selection contract only after a second consumer is proven |
+| `WidgetLibrary` | Implemented core; unverified | Present (installation blocked) | Typed dashboard/content widgets inspired by the legacy AdminLTE widget repository | None; consumes host/theme CSS variables without requiring ThemeKits |
+| `AdminConfiguration` | Implemented contracts; unverified | Present (installation blocked) | Admin-only safe settings, branding, environment and database-profile references | Authorization/result contracts only after reuse is proven |
 
 ## Register update rule
 

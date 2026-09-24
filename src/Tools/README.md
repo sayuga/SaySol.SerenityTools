@@ -9,6 +9,15 @@ core. It remains non-installable until its workbook provider, Serenity host
 integration, and dual-lane validation are complete. See its local README and
 validation ladder for the precise boundary.
 
+Additional implemented-but-unverified cores:
+
+- `ThemeKits` — semantic Light, Dark, Logistics, and Future theme tokens.
+- `WidgetLibrary` — typed, accessible dashboard/content widget builders.
+- `AdminConfiguration` — admin-only safe configuration contracts and transports.
+
+All remain resolver-blocked until their lane-specific Serenity host validation
+is complete.
+
 Use `templates/ToolCapsule/` when creating a capsule. Do not mark a capsule
 installable until its manifest validates against the repository schema and its
 declared installation has been tested in every claimed Serenity lane.

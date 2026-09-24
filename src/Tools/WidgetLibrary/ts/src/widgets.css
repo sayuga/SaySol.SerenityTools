@@ -1,0 +1,22 @@
+.saysol-widget {
+  background: var(--saysol-surface, #fff);
+  border: 1px solid var(--saysol-border, #cbd5e1);
+  border-radius: var(--saysol-radius, 0.5rem);
+  box-shadow: var(--saysol-shadow, 0 0.25rem 1rem rgb(15 23 42 / 12%));
+  color: var(--saysol-text, #172033);
+}
+.saysol-info-card { display: flex; min-block-size: 6rem; overflow: hidden; }
+.saysol-info-card__icon { align-content: center; background: var(--saysol-surface-alt, #e9eef5); font-size: 1.5rem; padding: 1rem; }
+.saysol-info-card__content { display: grid; flex: 1; gap: 0.25rem; padding: 1rem; }
+.saysol-info-card__label, .saysol-info-card__detail { color: var(--saysol-muted, #566176); }
+.saysol-info-card__value { font-size: 1.5rem; }
+.saysol-info-card__progress { inline-size: 100%; }
+.saysol-panel__header { align-items: center; display: flex; justify-content: space-between; padding: 0.75rem 1rem; }
+.saysol-panel__title { font-size: 1rem; margin: 0; }
+.saysol-panel__body { border-block-start: 1px solid var(--saysol-border, #cbd5e1); padding: 1rem; }
+.saysol-empty-state { padding: 2rem; text-align: center; }
+.saysol-tone-primary { border-color: var(--saysol-primary, #2457a7); }
+.saysol-tone-success { border-color: var(--saysol-success, #18794e); }
+.saysol-tone-warning { border-color: var(--saysol-warning, #9a6700); }
+.saysol-tone-danger { border-color: var(--saysol-danger, #b42318); }
+.saysol-widget button:focus-visible, .saysol-widget a:focus-visible { outline: 0.2rem solid var(--saysol-focus, #2563eb); outline-offset: 0.15rem; }

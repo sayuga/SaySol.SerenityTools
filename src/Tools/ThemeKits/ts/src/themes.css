@@ -1,0 +1,72 @@
+:root,
+:root[data-saysol-theme="light"] {
+  color-scheme: light;
+  --saysol-bg: #f5f7fa;
+  --saysol-surface: #ffffff;
+  --saysol-surface-alt: #e9eef5;
+  --saysol-text: #172033;
+  --saysol-muted: #566176;
+  --saysol-border: #cbd5e1;
+  --saysol-primary: #2457a7;
+  --saysol-primary-contrast: #ffffff;
+  --saysol-success: #18794e;
+  --saysol-warning: #9a6700;
+  --saysol-danger: #b42318;
+  --saysol-focus: #2563eb;
+  --saysol-radius: 0.5rem;
+  --saysol-shadow: 0 0.25rem 1rem rgb(15 23 42 / 12%);
+}
+
+:root[data-saysol-theme="dark"] {
+  color-scheme: dark;
+  --saysol-bg: #0f172a;
+  --saysol-surface: #1e293b;
+  --saysol-surface-alt: #334155;
+  --saysol-text: #f8fafc;
+  --saysol-muted: #cbd5e1;
+  --saysol-border: #475569;
+  --saysol-primary: #60a5fa;
+  --saysol-primary-contrast: #0f172a;
+  --saysol-success: #4ade80;
+  --saysol-warning: #fbbf24;
+  --saysol-danger: #f87171;
+  --saysol-focus: #93c5fd;
+  --saysol-radius: 0.5rem;
+  --saysol-shadow: 0 0.25rem 1rem rgb(0 0 0 / 35%);
+}
+
+:root[data-saysol-theme="logistics"] {
+  color-scheme: light;
+  --saysol-bg: #eef2f3;
+  --saysol-surface: #ffffff;
+  --saysol-surface-alt: #dfe7e9;
+  --saysol-text: #17242b;
+  --saysol-muted: #52646d;
+  --saysol-border: #b8c6ca;
+  --saysol-primary: #005b76;
+  --saysol-primary-contrast: #ffffff;
+  --saysol-success: #287a3c;
+  --saysol-warning: #a85d00;
+  --saysol-danger: #a52620;
+  --saysol-focus: #007ea3;
+  --saysol-radius: 0.25rem;
+  --saysol-shadow: 0 0.2rem 0.8rem rgb(23 36 43 / 16%);
+}
+
+:root[data-saysol-theme="future"] {
+  color-scheme: dark;
+  --saysol-bg: #070b18;
+  --saysol-surface: #111831;
+  --saysol-surface-alt: #1b2850;
+  --saysol-text: #eef6ff;
+  --saysol-muted: #a9bad5;
+  --saysol-border: #344b78;
+  --saysol-primary: #49d6ff;
+  --saysol-primary-contrast: #06101d;
+  --saysol-success: #58f0a5;
+  --saysol-warning: #ffd166;
+  --saysol-danger: #ff6b8a;
+  --saysol-focus: #b794f4;
+  --saysol-radius: 0.75rem;
+  --saysol-shadow: 0 0 1.25rem rgb(73 214 255 / 18%);
+}

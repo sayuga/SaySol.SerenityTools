@@ -20,7 +20,7 @@ jobs:
       - run: python tools/validate_repository.py
       - run: python -m unittest discover -s tests -p "test_*.py" -v
 
-  spreadsheet-import-dotnet:
+  capsule-dotnet:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -32,7 +32,7 @@ jobs:
           - lane: net10
             dotnet: "10.0.x"
             framework: net10.0
-    name: Spreadsheet Import (${{ matrix.lane }})
+    name: Capsule .NET proofs (${{ matrix.lane }})
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-dotnet@v4
@@ -43,16 +43,28 @@ jobs:
           --project tests/SpreadsheetImport.CoreProof/SpreadsheetImport.CoreProof.csproj
           -p:SaySolTargetFramework=${{ matrix.framework }}
           --configuration Release
+      - run: >-
+          dotnet run
+          --project tests/AdminConfiguration.CoreProof/AdminConfiguration.CoreProof.csproj
+          -p:SaySolTargetFramework=${{ matrix.framework }}
+          --configuration Release
 
-  spreadsheet-import-typescript:
+  capsule-typescript:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: src/Tools/SpreadsheetImport/ts
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: "24"
-      - run: npm install --ignore-scripts
-      - run: npm run typecheck
+      - name: Type-check capsule packages
+        shell: bash
+        run: |
+          for package in \
+            src/Tools/SpreadsheetImport/ts \
+            src/Tools/ThemeKits/ts \
+            src/Tools/WidgetLibrary/ts \
+            src/Tools/AdminConfiguration/ts
+          do
+            npm ci --ignore-scripts --prefix "$package"
+            npm run typecheck --prefix "$package"
+          done

@@ -12,6 +12,9 @@ it changes, how it is configured, and how it is validated or removed.
   human gates, lockfiles, receipts, upgrades, and uninstall.
 - [Spreadsheet Import](Spreadsheet-Import.md) — first implemented capsule.
 - [Grid Export](Grid-Export.md) — current recipe using native Serenity export.
+- [Theme Kits](Theme-Kits.md) — reusable Light, Dark, Logistics, and Future themes.
+- [Widget Library](Widget-Library.md) — typed dashboard and content widgets.
+- [Admin Configuration](Admin-Configuration.md) — admin-only safe configuration surface.
 - [Compatibility](Compatibility.md) — supported Serenity lanes and evidence labels.
 
 ## Status language
