@@ -68,3 +68,46 @@ jobs:
             npm ci --ignore-scripts --prefix "$package"
             npm run typecheck --prefix "$package"
           done
+
+  publish-wiki:
+    name: Publish GitHub Wiki
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    needs:
+      - repository-contracts
+      - capsule-dotnet
+      - capsule-typescript
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Synchronize validated wiki source
+        shell: bash
+        env:
+          WIKI_PUBLISH_TOKEN: ${{ secrets.WIKI_PUBLISH_TOKEN }}
+        run: |
+          set -euo pipefail
+
+          if [[ -z "${WIKI_PUBLISH_TOKEN}" ]]; then
+            echo "WIKI_PUBLISH_TOKEN is not configured." >&2
+            exit 1
+          fi
+
+          wiki_checkout="${RUNNER_TEMP}/SaySol.SerenityTools.wiki"
+          git clone \
+            "https://x-access-token:${WIKI_PUBLISH_TOKEN}@github.com/${GITHUB_REPOSITORY}.wiki.git" \
+            "${wiki_checkout}"
+
+          rsync -a --delete --exclude='.git/' wiki/ "${wiki_checkout}/"
+
+          git -C "${wiki_checkout}" config user.name "github-actions[bot]"
+          git -C "${wiki_checkout}" config user.email \
+            "41898282+github-actions[bot]@users.noreply.github.com"
+          git -C "${wiki_checkout}" add --all
+
+          if git -C "${wiki_checkout}" diff --cached --quiet; then
+            echo "GitHub Wiki is already synchronized."
+            exit 0
+          fi
+
+          git -C "${wiki_checkout}" commit \
+            -m "Sync wiki from ${GITHUB_REPOSITORY}@${GITHUB_SHA}"
+          git -C "${wiki_checkout}" push origin HEAD:master
