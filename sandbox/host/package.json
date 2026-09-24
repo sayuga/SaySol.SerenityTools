@@ -1,0 +1,1 @@
+{"name":"saysol-serenity-sandbox","private":true,"version":"1.0.0-candidate.1","scripts":{"build":"tsc --noEmit && node scripts/verify-frontend.mjs","test":"node scripts/verify-frontend.mjs"},"dependencies":{"@serenity-is/corelib":"10.5.1"},"devDependencies":{"@serenity-is/tsbuild":"10.4.0","typescript":"6.0.3"},"engines":{"node":">=24 <25","npm":">=11 <12"}}

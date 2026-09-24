@@ -59,6 +59,30 @@ jobs:
             npm run typecheck --prefix "$package"
           done
 
+  sandbox-candidate:
+    name: Disposable sandbox candidate
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "10.0.x"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+          cache: npm
+          cache-dependency-path: sandbox/host/package-lock.json
+      - name: Instantiate clean control host
+        run: ./sandbox/scripts/instantiate.sh "$RUNNER_TEMP/saysol-sandbox"
+      - name: Validate clean control host
+        run: "$RUNNER_TEMP/saysol-sandbox/sandboxctl" validate
+      - name: Preserve baseline evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: sandbox-candidate-evidence
+          path: ${{ runner.temp }}/saysol-sandbox/evidence/
+
   publish-wiki:
     name: Publish GitHub Wiki
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
@@ -66,6 +90,7 @@ jobs:
       - repository-contracts
       - capsule-dotnet
       - capsule-typescript
+      - sandbox-candidate
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

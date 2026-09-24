@@ -1,6 +1,7 @@
 - [Home](Home.md)
 - [Tool Catalog](Tool-Catalog.md)
 - [Installation Model](Installation-Model.md)
+- [Sandbox Testing Guide](Sandbox-Testing-Guide.md)
 - [Compatibility](Compatibility.md)
 
 ## Tools

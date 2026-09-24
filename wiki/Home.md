@@ -16,6 +16,7 @@ it changes, how it is configured, and how it is validated or removed.
 - [Widget Library](Widget-Library.md) — typed dashboard and content widgets.
 - [Admin Configuration](Admin-Configuration.md) — admin-only safe configuration surface.
 - [Compatibility](Compatibility.md) — supported Serenity lanes and evidence labels.
+- [Sandbox Testing Guide](Sandbox-Testing-Guide.md) — reproducible clean-host validation.
 
 ## Status language
 

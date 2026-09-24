@@ -40,6 +40,18 @@ Detailed operator-facing tool guides are maintained in the version-controlled
 [wiki source](wiki/Home.md). Each capsule receives a page once it reaches design,
 recipe, or implementation; planned placeholders are intentionally avoided.
 
+## Run the sandbox
+
+The disposable sandbox is the canonical clean capsule-validation host:
+
+    ./sandbox/scripts/preflight.sh
+    ./sandbox/scripts/instantiate.sh /tmp/saysol-sandbox-run-001
+    cd /tmp/saysol-sandbox-run-001
+    ./sandboxctl validate
+
+Proceed only when the final output is SAYSOL SANDBOX BASELINE: PASS. See the
+[Sandbox Testing Guide](wiki/Sandbox-Testing-Guide.md) for the full lifecycle.
+
 ## Repository map
 
 - `docs/reference/` — version baselines, important framework changes, and upgrade policy

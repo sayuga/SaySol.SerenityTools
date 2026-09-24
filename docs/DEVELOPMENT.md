@@ -3,6 +3,12 @@
 This document explains how a wiki idea becomes a supported SerenityTools
 integration.
 
+## Canonical host validation
+
+All host claims use docs/architecture/disposable-sandbox.md. A clean baseline
+PASS precedes capsule installation, and logs are preserved before disposal.
+Candidate baselines cannot be described as approved; CI cannot promote or tag.
+
 The repository follows the [tool-capsule architecture](architecture/capsule-model.md).
 Before implementing a wiki idea, check the
 [consolidation map](wiki-modernization/consolidation-map.md) to determine whether

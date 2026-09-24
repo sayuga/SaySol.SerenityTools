@@ -1,0 +1,10 @@
+schema_version: 1
+purpose: Permanent reconciliation of the legacy Serenity wiki with the separate current SaySol catalog.
+source_manifests: [docs/wiki-modernization/manifest.yaml, docs/wiki-modernization/archive-manifest.md]
+allowed_statuses: [Pending, Researching, Modernized — Capsule, Modernized — Recipe, Superseded by native Serenity, Retired/Obsolete, Not Applicable]
+summary: { total_legacy_items: 156, fully_reconciled: false }
+current_saysol_catalog_is_separate: catalog.yaml
+modernized_links:
+  - { legacy: Adding-Excel-Export.md, status: Superseded by native Serenity, modern_target: grid-export }
+  - { legacy: Spreadsheet-import concepts, status: Modernized — Capsule, modern_target: spreadsheet-import }
+remaining_inventory: { active_manifest: docs/wiki-modernization/manifest.yaml, archive_manifest: docs/wiki-modernization/archive-manifest.md, default_status: Pending }

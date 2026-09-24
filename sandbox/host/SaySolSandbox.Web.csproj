@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+ <PropertyGroup><TargetFramework>net10.0</TargetFramework><Nullable>enable</Nullable><ImplicitUsings>enable</ImplicitUsings><RootNamespace>SaySolSandbox</RootNamespace></PropertyGroup>
+ <ItemGroup>
+  <PackageReference Include="Microsoft.Data.Sqlite" Version="10.0.0" />
+  <PackageReference Include="Serenity.Assets" Version="10.5.2" />
+  <PackageReference Include="Serenity.Corelib" Version="10.5.2" />
+  <PackageReference Include="Serenity.Extensions" Version="10.5.2" />
+  <PackageReference Include="Serenity.Net.Web" Version="10.5.2" />
+ </ItemGroup>
+ <ItemGroup><Content Include="Migrations/DefaultDB/baseline.sql" CopyToOutputDirectory="PreserveNewest" /></ItemGroup>
+</Project>

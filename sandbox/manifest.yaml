@@ -1,0 +1,23 @@
+schema_version: 1
+id: saysol-serenity-disposable-sandbox
+baseline_version: 1.0.0-candidate.1
+state: candidate-unvalidated
+approved: false
+approval: { owner: null, approved_at: null, tag: null }
+provenance:
+  template_package: Serene.Templates
+  template_version: 10.3.7
+  note: Public template dependency-upgrade candidate pinned to Serenity 10.5.2.
+runtime: { dotnet_sdk: 10.0.x, target_framework: net10.0, node: 24.x, npm: 11.x }
+serenity:
+  minimum_supported: 10.5.0
+  tested_candidate: 10.5.2
+  nuget: { Serenity.Assets: 10.5.2, Serenity.Corelib: 10.5.2, Serenity.Net.Web: 10.5.2, Serenity.Extensions: 10.5.2, sergen: 10.5.2 }
+  npm: { "@serenity-is/corelib": 10.5.1, "@serenity-is/tsbuild": 10.4.0 }
+database: { provider: SQLite, file: App_Data/SaySolSandbox.sqlite, migration: host/Migrations/DefaultDB/baseline.sql }
+seed:
+  algorithm: SaySolSandboxSeed/v1
+  counts: { product_categories: 6, customers: 30, products: 30, employees: 8, warehouses: 4, orders: 100, order_details: 300, inventory: 120 }
+control_host: { capsules_installed: [] }
+evidence_schema: evidence/evidence.schema.json
+intended_tag: sandbox/v1.0.0-serenity-10.5.2
