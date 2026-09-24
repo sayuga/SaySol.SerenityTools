@@ -23,3 +23,12 @@ exact validation benchmark.
 
 The change deliberately removes the earlier Serenity 9 adapter and validation
 lane so future work cannot accidentally imply legacy support.
+
+## Validation evidence
+
+- Repository commit: `34ba96e3b8a0bf9735735c799676081bbc157eb5`
+- GitHub Actions run: <https://github.com/sayuga/SaySol.SerenityTools/actions/runs/36045449950>
+- Repository contracts and 14 Python tests: passed
+- All TypeScript capsule checks: passed
+- Spreadsheet Import and Admin Configuration .NET 10 proofs: passed
+- GitHub Wiki synchronization: passed
