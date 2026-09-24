@@ -203,8 +203,9 @@ the user wants.
 
 - Serenity 10.5.2 source inventory: completed.
 - AdminLTE legacy source inventory and mapping: completed.
-- Manifest/schema validation: passed for version 0.1.0; 0.2.0 pending CI.
-- TypeScript strict type-check: passed for version 0.1.0; 0.2.0 pending CI.
+- Manifest/schema validation for version 0.2.0: passed.
+- TypeScript 5.9.3 strict type-check for version 0.2.0: passed.
+- Native/external provider separation contract test: passed.
 - Serenity 9.2 native inventory: not completed.
 - Serenity 9.2 bundling/lifecycle test: not tested.
 - Serenity 10.5.2 bundling/lifecycle test: not tested.

@@ -31,6 +31,18 @@ and AdminLTE 2 coupling.
 This is source-level compatibility evidence. It does not replace compilation
 and rendering inside a Serenity 10.5.2 host.
 
+## Provider catalog proof — 2026-09-24
+
+- Repository commit: `f82088badb464547ab48def0d2b5b67ce68c863a`
+- GitHub Actions run: <https://github.com/sayuga/SaySol.SerenityTools/actions/runs/35999610228>
+- Repository contracts and manifest validation: passed
+- Python capsule tests: passed (12-test repository suite)
+- TypeScript 5.9.3 strict type-check: passed
+- Serenity-native entries: 55
+- AdminLTE sample mappings: 11
+- AdminLTE/runtime npm dependencies added: 0
+- GitHub Wiki synchronization: passed
+
 ## Evidence still required
 
 Neither Serenity lane has bundled or rendered the widgets in a real host.
