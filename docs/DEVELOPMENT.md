@@ -51,6 +51,11 @@ A compiling legacy snippet is not evidence of a supported design.
 - Capsule ownership claims do not collide with another released capsule.
 - The dry-run resolver succeeds for every claimed host lane and required
   dependency combination before release.
+- A detailed page exists under `wiki/` once a tool reaches design, recipe, or
+  implementation, and its maturity never exceeds the catalog or manifest.
+- Wiki pages explain provenance, scope, dependencies, security, installation,
+  configuration, validation evidence, upgrade, repair, and uninstall without
+  authorizing operations absent from the manifest.
 
 ## Dual-lane validation
 

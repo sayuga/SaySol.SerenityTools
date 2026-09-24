@@ -37,6 +37,10 @@ dependencies, host capabilities, and ownership collisions can be checked with
 the read-only [resolver](tools/resolve_install.py); see the
 [orchestration design](docs/architecture/import-orchestration.md).
 
+Detailed operator-facing tool guides are maintained in the version-controlled
+[wiki source](wiki/Home.md). Each capsule receives a page once it reaches design,
+recipe, or implementation; planned placeholders are intentionally avoided.
+
 ## Repository map
 
 - `docs/reference/` — version baselines, important framework changes, and upgrade policy
