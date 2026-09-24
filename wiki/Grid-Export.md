@@ -12,7 +12,7 @@ legacy hand-written fetch, blob, and file-saver code with Serenity's native
 | --- | --- |
 | Catalog ID | `saysol.serenity.grid-export` |
 | Tool version | Not packaged |
-| Wiki documentation version | `1.0.0` |
+| Wiki documentation version | `1.1.0` |
 | Maturity | Recipe |
 | Delivery | Documentation recipe |
 | Installation state | **Recipe only — host validation required** |
@@ -21,8 +21,7 @@ legacy hand-written fetch, blob, and file-saver code with Serenity's native
 
 | Lane | Serenity | Runtime | Compatibility evidence | Host installation test |
 | --- | --- | --- | --- | --- |
-| Legacy | 9.2.x | .NET 8 | Planned | Not tested |
-| Current | 10.5.2 | .NET 10 | Source-verified | Not tested |
+| Supported baseline | 10.5.2 | .NET 10 | Source verified | Not tested |
 
 ## When to use it
 
@@ -46,7 +45,6 @@ Serenity's native facilities.
 ### Installation testing state
 
 - Native API comparison against Serenity 10.5.2 source: passed.
-- Serenity 9.2 host compilation and export behavior: not tested.
 - Serenity 10.5.2 host compilation and export behavior: not tested.
 - Permission, filtering, sorting, visible-column, and large-result behavior:
   pending host validation.

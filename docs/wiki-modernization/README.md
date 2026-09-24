@@ -17,7 +17,8 @@ still require current-source verification before they can claim compatibility.
 - Commit date: 2025-06-22
 - Stated compatibility: Serenity 8.8.1
 - Modernization target reviewed here: Serenity 10.5.2
-- Secondary supported target: Serenity 9.2.x
+- Minimum supported target: Serenity 10.5.x
+- Earlier versions: provenance and concept research only; no compatibility testing
 
 ## Dispositions
 

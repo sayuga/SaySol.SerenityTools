@@ -11,16 +11,15 @@ Logistics, and Future.
 | Property | Current value |
 | --- | --- |
 | Capsule ID | `saysol.serenity.theme-kits` |
-| Capsule version | `0.1.0` |
-| Wiki documentation version | `1.0.1` |
+| Capsule version | `0.2.0` |
+| Wiki documentation version | `1.1.0` |
 | Maturity | Implemented core |
 | Installation state | **Blocked — Serenity host rendering is unverified** |
 | Last reviewed | 2026-09-24 |
 
 | Lane | Serenity | Runtime | Compatibility evidence | Core test | Host installation test |
 | --- | --- | --- | --- | --- | --- |
-| Legacy | 9.2.x | .NET 8 | Planned | Passed (TypeScript core) | Not tested |
-| Current | 10.5.2 | .NET 10 | Planned | Passed (TypeScript core) | Not tested |
+| Supported baseline | 10.5.2 | .NET 10 | Planned | Passed (TypeScript core) | Not tested |
 
 ## Intended workflow
 
@@ -31,7 +30,7 @@ danger, focus, radius, and shadow.
 
 ## Scope and non-goals
 
-Version 0.1.0 includes Light, Dark, Logistics, and Future token sets plus typed
+Version 0.2.0 includes Light, Dark, Logistics, and Future token sets plus typed
 theme selection helpers. It does not rewrite Serenity templates, persist user
 preference, manage logos, or guarantee third-party chart colors.
 
@@ -61,7 +60,6 @@ placement/imports and must install only one copy of the theme stylesheet.
 
 - Manifest/schema validation: passed.
 - TypeScript 5.9.3 strict type-check: passed.
-- Serenity 9.2 asset loading and full layout review: not tested.
 - Serenity 10.5.2 asset loading and full layout review: not tested.
 - Accessibility, no-flash loading, persistence, upgrade, and uninstall: not tested.
 

@@ -3,7 +3,7 @@ schema_version: "1.0"
 toolset:
   id: "saysol.serenitytools"
   display_name: "SaySol SerenityTools"
-  catalog_version: "0.1.0"
+  catalog_version: "0.2.0"
   minimum_importer_version: "0.1.0"
 
 defaults:
@@ -13,10 +13,6 @@ defaults:
   ownership_marker: "saysol-managed"
 
 compatibility_lanes:
-  net8:
-    serenity: ">=9.2.0 <10.0.0"
-    dotnet: "8.0"
-    adapter: "Serenity9"
   net10:
     serenity: ">=10.5.0 <11.0.0"
     dotnet: "10.0"
@@ -25,7 +21,7 @@ compatibility_lanes:
 capsules:
   - id: "saysol.serenity.spreadsheet-import"
     display_name: "Spreadsheet Import"
-    version: "0.1.0"
+    version: "0.2.0"
     maturity: "implemented"
     delivery: "combined"
     manifest: "src/Tools/SpreadsheetImport/capsule.yaml"
@@ -43,7 +39,7 @@ capsules:
 
   - id: "saysol.serenity.theme-kits"
     display_name: "Theme Kits"
-    version: "0.1.0"
+    version: "0.2.0"
     maturity: "implemented"
     delivery: "npm"
     manifest: "src/Tools/ThemeKits/capsule.yaml"
@@ -52,7 +48,7 @@ capsules:
 
   - id: "saysol.serenity.widget-library"
     display_name: "Widget Library"
-    version: "0.2.0"
+    version: "0.3.0"
     maturity: "implemented"
     delivery: "npm"
     manifest: "src/Tools/WidgetLibrary/capsule.yaml"
@@ -61,7 +57,7 @@ capsules:
 
   - id: "saysol.serenity.admin-configuration"
     display_name: "Admin Configuration"
-    version: "0.1.0"
+    version: "0.2.0"
     maturity: "implemented"
     delivery: "combined"
     manifest: "src/Tools/AdminConfiguration/capsule.yaml"

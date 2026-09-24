@@ -62,7 +62,7 @@ export class ProductGrid extends EntityGrid<ProductRow> {
 
 ## Validation still required
 
-- Build in a Serenity 9.2.x / .NET 8 host.
+- Build in a Serenity 10.5+ / .NET 10 host.
 - Build in a Serenity 10.5.2 / .NET 10 host.
 - Confirm permissions, active filters, quick search, sort, column visibility,
   large-result behavior, error handling, and downloaded workbook content.

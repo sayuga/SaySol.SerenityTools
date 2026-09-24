@@ -11,10 +11,6 @@ capsule:
 
 compatibility:
   serenity:
-    - lane: "net8"
-      version: ">=9.2.0 <10.0.0"
-      dotnet: "8.0"
-      evidence: "planned"
     - lane: "net10"
       version: ">=10.5.0 <11.0.0"
       dotnet: "10.0"

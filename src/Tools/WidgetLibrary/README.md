@@ -1,6 +1,6 @@
 # Widget Library capsule
 
-Version: 0.2.0
+Version: 0.3.0
 Maturity: implemented TypeScript core; not Serenity-host verified
 
 This capsule now starts with Serenity itself. It inventories the public native
@@ -8,7 +8,7 @@ UI options in Serenity 10.5.2, keeps the dependency-free SaySol dashboard
 builders separate, and provides a provider/mapping contract for optional
 external widget systems.
 
-Version 0.2.0 maps native lifecycle widgets, panels, grids, dialogs, editors,
+Version 0.3.0 maps native lifecycle widgets, panels, grids, dialogs, editors,
 filters, and formatters. The SaySol layer implements info cards, stat cards,
 panels, progress, and empty states. It uses ES modules, strict types,
 `HTMLElement` targets, `textContent`, semantic elements, accessible labels, and

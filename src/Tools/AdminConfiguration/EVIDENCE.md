@@ -10,7 +10,6 @@ Serenity-host compatibility or make the capsule installable.
 - Repository contracts and manifest validation: passed
 - Python capsule tests: passed (11-test repository suite)
 - TypeScript 5.9.3 strict type-check: passed
-- .NET 8 contract compile and executable proof: passed
 - .NET 10 contract compile and executable proof: passed
 - Public-model secret-field guard: passed
 
@@ -23,4 +22,8 @@ credentials, secret values, or token values.
 No Serenity host has registered the page, permission, endpoint, navigation, or
 persistence provider. Authorization bypass, concurrency, auditing, connectivity
 probing, profile switching, redaction, upgrade, repair, and uninstall remain
-unverified in both supported lanes.
+unverified in the supported Serenity 10.5.2 lane.
+
+The original core-proof run also compiled on .NET 8. That result is historical
+framework evidence only and is not a Serenity compatibility claim. Active
+validation now begins with Serenity 10.5+ on .NET 10.

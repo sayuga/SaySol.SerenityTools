@@ -22,6 +22,15 @@ class NewCapsuleTests(unittest.TestCase):
             self.assertEqual([], manifest["installation"]["edits"])
             self.assertEqual([], manifest["installation"]["migrations"])
 
+    def test_all_capsules_start_at_serenity_10_5(self):
+        for folder in CAPSULES:
+            manifest = yaml.safe_load(
+                (ROOT / f"src/Tools/{folder}/capsule.yaml").read_text()
+            )
+            lanes = manifest["compatibility"]["serenity"]
+            self.assertEqual(["net10"], [lane["lane"] for lane in lanes])
+            self.assertEqual(">=10.5.0 <11.0.0", lanes[0]["version"])
+
     def test_admin_configuration_models_exclude_secret_values(self):
         core = ROOT / "src/Tools/AdminConfiguration/dotnet/Core"
         text = "\n".join(path.read_text() for path in core.glob("*.cs"))

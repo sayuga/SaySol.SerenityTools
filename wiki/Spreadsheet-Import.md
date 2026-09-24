@@ -11,8 +11,8 @@ field keys, previewing conversions and errors, and committing authorized rows.
 | Property | Current value |
 | --- | --- |
 | Capsule ID | `saysol.serenity.spreadsheet-import` |
-| Capsule version | `0.1.0` |
-| Wiki documentation version | `1.0.0` |
+| Capsule version | `0.2.0` |
+| Wiki documentation version | `1.1.0` |
 | Maturity | Implemented core |
 | Installation state | **Blocked — host integration is unverified** |
 | Last reviewed | 2026-09-24 |
@@ -20,11 +20,10 @@ field keys, previewing conversions and errors, and committing authorized rows.
 
 | Lane | Serenity | Runtime | Compatibility evidence | Core test | Host installation test |
 | --- | --- | --- | --- | --- | --- |
-| Legacy | 9.2.x | .NET 8 | Planned | Passed | Not tested |
-| Current | 10.5.2 | .NET 10 | Planned | Passed | Not tested |
+| Supported baseline | 10.5.2 | .NET 10 | Planned | Passed | Not tested |
 
 The capsule is visible in the catalog but the resolver correctly blocks it. Its
-framework-light core has passed .NET 8, .NET 10, TypeScript, schema, and
+framework-light core has passed .NET 10, TypeScript, schema, and
 repository tests; actual Serenity host integration remains unverified.
 
 ## Intended user workflow
@@ -40,7 +39,7 @@ repository tests; actual Serenity host integration remains unverified.
 
 ## Implemented behavior
 
-The 0.1.0 core provides:
+The 0.2.0 core provides:
 
 - stable field keys, display names, and aliases;
 - Unicode-aware header normalization;
@@ -48,7 +47,7 @@ The 0.1.0 core provides:
 - file, worksheet, row, column, and expanded-size limit contracts;
 - typed preview rows, issues, commit results, and token bindings;
 - authorization, workbook-reader, token-store, and commit interfaces;
-- separate Serenity 9.2 and 10.5 adapter seams;
+- a Serenity 10.5+ adapter seam;
 - TypeScript preview/commit transport contracts.
 
 ## Not implemented yet
@@ -100,7 +99,7 @@ and adversarial workbook validation first.
 
 ## Database and migrations
 
-Version 0.1.0 owns no database objects and installs no migrations. Saved mapping,
+Version 0.2.0 owns no database objects and installs no migrations. Saved mapping,
 token, and audit persistence remain host-provider decisions. Any future schema
 must arrive in a new manifest version with an explicit database-change gate.
 
@@ -115,15 +114,14 @@ operations and includes a `capsule-not-yet-verified` human gate.
 - Catalog selection guard: passed; `implemented` capsules are rejected.
 - Manifest schema validation: passed.
 - Dependency and ownership resolution tests: passed.
-- .NET 8 and .NET 10 framework-light core proof: passed.
+- .NET 10 framework-light core proof: passed.
 - TypeScript contract type-check: passed.
-- Serenity 9.2 host installation: not tested.
 - Serenity 10.5.2 host installation: not tested.
 - Upgrade, repair, uninstall, and rollback behavior: not tested in a host.
 
 ## Validation evidence
 
-The first core proof passed on both .NET runtime lanes and TypeScript. See the
+The core proof passed on .NET 10 and TypeScript. See the
 capsule `EVIDENCE.md` for the exact commit and GitHub Actions run. Host validation
 must additionally cover permission denial, upload limits, malicious workbooks,
 lookup ambiguity, token binding, commit revalidation, transaction behavior,

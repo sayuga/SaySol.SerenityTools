@@ -2,14 +2,13 @@ schema_version: "1.1"
 capsule:
   id: "saysol.serenity.widget-library"
   display_name: "Widget Library"
-  version: "0.2.0"
+  version: "0.3.0"
   description: "Mapped Serenity-native UI catalog, SaySol builders, and optional external widget providers."
   license: "MIT"
   delivery: "npm"
   source_commit: null
 compatibility:
   serenity:
-    - { lane: "net8", version: ">=9.2.0 <10.0.0", dotnet: "8.0", evidence: "planned" }
     - { lane: "net10", version: ">=10.5.0 <11.0.0", dotnet: "10.0", evidence: "planned" }
   node: ">=20"
   package_manager: "npm"

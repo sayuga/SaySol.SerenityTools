@@ -57,16 +57,17 @@ A compiling legacy snippet is not evidence of a supported design.
   configuration, validation evidence, upgrade, repair, and uninstall without
   authorizing operations absent from the manifest.
 
-## Dual-lane validation
+## Supported validation baseline
 
-Until the existing SaySol applications move from .NET 8, integrations should be
-designed against two hosts where practical:
+All new and updated tools target Serenity 10.5 or newer. The initial proof host
+is Serenity 10.5.2 on .NET 10. Earlier Serenity versions are historical research
+sources only and receive no compatibility, installation, upgrade, or regression
+testing. Do not add a legacy lane to a capsule unless repository policy is
+explicitly changed in the future.
 
-- Serenity 9.2.x on .NET 8 / Visual Studio 2022.
-- Serenity 10.5.x on .NET 10 / Visual Studio 2026.
-
-Code shared between lanes belongs in a framework-light core. Serenity-version
-adapters should be thin and separate when APIs materially differ.
+Version-specific integration belongs in a thin adapter when later Serenity
+10.x releases materially change an API. A wider 10.5+ range may be claimed only
+after its relevant boundaries have been tested.
 
 ## Repository discipline
 

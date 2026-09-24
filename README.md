@@ -8,13 +8,12 @@ replace Serenity's official documentation or copy legacy wiki code without
 review. Every adopted pattern is traced to its source and tested against an
 explicit Serenity compatibility lane.
 
-## Compatibility lanes
+## Compatibility baseline
 
 | Lane | Serenity | Runtime and IDE | Purpose |
 | --- | --- | --- | --- |
-| Current | 10.5.x | .NET 10 / Visual Studio 2026 | New development and forward-looking packages |
-| Legacy supported | 9.2.x | .NET 8 / Visual Studio 2022 | Existing SaySol projects and controlled migration |
-| Research only | 8.8.1 | Historical baseline | Original community-wiki compatibility point |
+| Supported baseline | 10.5.x | .NET 10 / Visual Studio 2026 | All new and updated tools |
+| Historical source only | Earlier versions | Not tested or supported | Concept provenance and upgrade analysis only |
 
 See [the compatibility matrix](docs/reference/compatibility-matrix.md) before
 using a recipe or package.
@@ -68,5 +67,5 @@ The first active track is export/import:
 2. Excel import: design a reusable upload, preview, column-map, validate, and
    commit workflow with a small host registration surface.
 
-The export recipe is ready for technical validation. The import design is
-documented but is not yet an installable package.
+The export recipe is ready for Serenity 10.5+ technical validation. The import
+capsule has an implemented core but remains blocked until host validation.

@@ -1,6 +1,6 @@
 # Spreadsheet Import capsule
 
-Version: 0.1.0  
+Version: 0.2.0
 Maturity: implemented core; not installable or compatibility-verified
 
 Spreadsheet Import provides framework-light contracts and deterministic column
@@ -17,7 +17,7 @@ Included now:
 - explicit unmapped, ambiguous, and duplicate-target outcomes;
 - bounded import limits and profile contracts;
 - typed preview, validation, token-store, and commit interfaces;
-- separate Serenity 9.2 and 10.5 adapter seams;
+- a Serenity 10.5+ adapter seam;
 - TypeScript request/response contracts;
 - a manifest declaring intended placement and ownership.
 
@@ -28,7 +28,7 @@ Not included yet:
 - Serenity endpoints, permission integration, or dependency injection registration;
 - mapping/preview dialog and grid button;
 - database migrations;
-- compiled host evidence for either compatibility lane.
+- compiled Serenity 10.5.2 host evidence.
 
 The root resolver therefore rejects this capsule while its catalog maturity is
 `implemented`. It may move to `verified` only after the proof-host checklist in
@@ -37,7 +37,6 @@ The root resolver therefore rejects this capsule while its catalog maturity is
 ## Layout
 
 - `dotnet/Core` — framework-light contracts and mapping behavior.
-- `dotnet/Adapters/Serenity9` — .NET 8 / Serenity 9.2 adapter seam.
 - `dotnet/Adapters/Serenity10` — .NET 10 / Serenity 10.5 adapter seam.
 - `ts/src` — transport contracts with no direct Serenity dependency yet.
 - `capsule.yaml` — bounded installation intent.
@@ -54,7 +53,7 @@ the shared-promotion rule will be reevaluated with real consumers.
 
 ## Migration decision
 
-Version 0.1.0 owns no database objects and declares no migrations. Durable audit
+Version 0.2.0 owns no database objects and declares no migrations. Durable audit
 storage, saved mappings, and token persistence remain host-provider decisions
 until their cross-host requirements are proven. Adding schema later requires a
 new manifest version and an explicit database-change gate.

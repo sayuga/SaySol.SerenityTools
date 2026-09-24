@@ -15,7 +15,8 @@ source:
   stated_serenity_version: 8.8.1
 targets:
   primary: 10.5.2
-  legacy_supported: 9.2.x
+  minimum_supported: 10.5.0
+  earlier_versions: historical-source-only
 entries:
   - id: WIKI-001
     source_file: 'A-proposal-for-"dogfooding"-Serenity-documentation.md'

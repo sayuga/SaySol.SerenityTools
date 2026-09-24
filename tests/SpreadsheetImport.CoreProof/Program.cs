@@ -1,5 +1,4 @@
 using SaySol.SerenityTools.SpreadsheetImport;
-using SaySol.SerenityTools.SpreadsheetImport.Adapters.Serenity9;
 using SaySol.SerenityTools.SpreadsheetImport.Adapters.Serenity10;
 
 var fields = new ImportField[]
@@ -37,7 +36,7 @@ catch (ArgumentOutOfRangeException)
     // Expected.
 }
 
-if (new Net8ProofAdapter().Lane != "net8" || new Net10ProofAdapter().Lane != "net10")
+if (new Net10ProofAdapter().Lane != "net10")
     throw new InvalidOperationException("Compatibility adapters reported the wrong lane.");
 
 Console.WriteLine("SpreadsheetImport core proof passed.");
@@ -47,12 +46,6 @@ static void Expect(ColumnMapping mapping, MappingStatus status, string? fieldKey
     if (mapping.Status != status || mapping.FieldKey != fieldKey)
         throw new InvalidOperationException(
             $"Column {mapping.ColumnIndex}: expected {status}/{fieldKey}, got {mapping.Status}/{mapping.FieldKey}.");
-}
-
-sealed class Net8ProofAdapter : Serenity9SpreadsheetImportAdapter
-{
-    public override ValueTask DemandPermissionAsync(string permission, CancellationToken cancellationToken) =>
-        ValueTask.CompletedTask;
 }
 
 sealed class Net10ProofAdapter : Serenity10SpreadsheetImportAdapter

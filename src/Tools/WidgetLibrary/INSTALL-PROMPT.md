@@ -1,7 +1,7 @@
 # Widget Library installation prompt
 
 Installation is blocked while the capsule is `implemented`. Do not copy it into
-a Serenity host until both lanes prove bundling, styling, accessibility,
+a Serenity host until the Serenity 10.5.2 baseline proves bundling, styling, accessibility,
 disposal, and responsive behavior. When verified, install only files and root
 edits declared by `capsule.yaml`; do not add AdminLTE, chart, or calendar
 dependencies implicitly.

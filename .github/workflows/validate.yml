@@ -22,31 +22,21 @@ jobs:
 
   capsule-dotnet:
     runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        include:
-          - lane: net8
-            dotnet: "8.0.x"
-            framework: net8.0
-          - lane: net10
-            dotnet: "10.0.x"
-            framework: net10.0
-    name: Capsule .NET proofs (${{ matrix.lane }})
+    name: Capsule .NET proofs (Serenity 10.5+ baseline)
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-dotnet@v4
         with:
-          dotnet-version: ${{ matrix.dotnet }}
+          dotnet-version: "10.0.x"
       - run: >-
           dotnet run
           --project tests/SpreadsheetImport.CoreProof/SpreadsheetImport.CoreProof.csproj
-          -p:SaySolTargetFramework=${{ matrix.framework }}
+          -p:SaySolTargetFramework=net10.0
           --configuration Release
       - run: >-
           dotnet run
           --project tests/AdminConfiguration.CoreProof/AdminConfiguration.CoreProof.csproj
-          -p:SaySolTargetFramework=${{ matrix.framework }}
+          -p:SaySolTargetFramework=net10.0
           --configuration Release
 
   capsule-typescript:

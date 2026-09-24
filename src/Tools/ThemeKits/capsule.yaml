@@ -2,17 +2,13 @@ schema_version: "1.1"
 capsule:
   id: "saysol.serenity.theme-kits"
   display_name: "Theme Kits"
-  version: "0.1.0"
+  version: "0.2.0"
   description: "Semantic theme tokens with Light, Dark, Logistics, and Future kits."
   license: "MIT"
   delivery: "npm"
   source_commit: null
 compatibility:
   serenity:
-    - lane: "net8"
-      version: ">=9.2.0 <10.0.0"
-      dotnet: "8.0"
-      evidence: "planned"
     - lane: "net10"
       version: ">=10.5.0 <11.0.0"
       dotnet: "10.0"

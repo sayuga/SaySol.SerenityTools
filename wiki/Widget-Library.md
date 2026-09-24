@@ -17,8 +17,8 @@ not installed or required by this capsule.
 | Property | Current value |
 | --- | --- |
 | Capsule ID | `saysol.serenity.widget-library` |
-| Capsule version | `0.2.0` |
-| Wiki documentation version | `1.1.0` |
+| Capsule version | `0.3.0` |
+| Wiki documentation version | `1.2.0` |
 | Native inventory baseline | Serenity tag `10.5.2`, commit `72c270aca67f4848c86d63aec830a2d620629690` |
 | Maturity | Implemented catalog and TypeScript core |
 | Installation state | **Blocked — Serenity host lifecycle is unverified** |
@@ -27,8 +27,7 @@ not installed or required by this capsule.
 
 | Lane | Serenity | Runtime | Compatibility evidence | Core test | Host installation test |
 | --- | --- | --- | --- | --- | --- |
-| Legacy | 9.2.x | .NET 8 | Planned; separate inventory still required | Passed (TypeScript core) | Not tested |
-| Current | 10.5.2 | .NET 10 | Native source inventory completed | Passed (TypeScript core) | Not tested |
+| Supported baseline | 10.5.2 | .NET 10 | Native source inventory completed | Passed (TypeScript core) | Not tested |
 
 ## Source organization
 
@@ -203,11 +202,9 @@ the user wants.
 
 - Serenity 10.5.2 source inventory: completed.
 - AdminLTE legacy source inventory and mapping: completed.
-- Manifest/schema validation for version 0.2.0: passed.
-- TypeScript 5.9.3 strict type-check for version 0.2.0: passed.
+- Manifest/schema validation for version 0.2.0: passed; 0.3.0 pending CI.
+- TypeScript 5.9.3 strict type-check for version 0.2.0: passed; 0.3.0 pending CI.
 - Native/external provider separation contract test: passed.
-- Serenity 9.2 native inventory: not completed.
-- Serenity 9.2 bundling/lifecycle test: not tested.
 - Serenity 10.5.2 bundling/lifecycle test: not tested.
 - Keyboard, screen reader, responsive, upgrade, and uninstall tests: not tested.
 

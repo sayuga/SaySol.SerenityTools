@@ -115,7 +115,8 @@ a valid SaySol tool rather than a duplicate of a complete native feature.
 The UI should isolate Serenity-specific imports behind a thin adapter. Server
 profiles should avoid inheriting directly from request-handler internals. This
 reduces the effect of the 10.5 async-handler transition and makes separate
-9.2.x and 10.5.x adapters possible if required.
+The supported adapter begins at Serenity 10.5 on .NET 10. Earlier-version
+adapters are out of scope.
 
 ## First proof target
 

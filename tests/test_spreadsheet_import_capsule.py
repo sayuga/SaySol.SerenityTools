@@ -34,10 +34,18 @@ class SpreadsheetImportCapsuleTests(unittest.TestCase):
         }
         self.assertEqual({"planned"}, evidence)
 
-    def test_lane_adapters_remain_separate(self):
+    def test_only_supported_adapter_is_present(self):
         adapters = ROOT / "src/Tools/SpreadsheetImport/dotnet/Adapters"
-        self.assertTrue((adapters / "Serenity9/Serenity9SpreadsheetImportAdapter.cs").is_file())
         self.assertTrue((adapters / "Serenity10/Serenity10SpreadsheetImportAdapter.cs").is_file())
+        self.assertFalse(
+            (adapters / "Serenity9/Serenity9SpreadsheetImportAdapter.cs").exists()
+        )
+
+    def test_serenity_compatibility_starts_at_10_5(self):
+        self.assertEqual({"net10"}, set(self.catalog["compatibility_lanes"]))
+        lanes = self.manifest["compatibility"]["serenity"]
+        self.assertEqual(["net10"], [lane["lane"] for lane in lanes])
+        self.assertEqual(">=10.5.0 <11.0.0", lanes[0]["version"])
 
     def test_no_shared_promotion_was_made(self):
         self.assertFalse(self.manifest["dependencies"]["shared"]["required"])

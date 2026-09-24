@@ -1,12 +1,11 @@
 # Compatibility
 
-## Supported lanes
+## Supported baseline
 
 | Lane | Serenity baseline | Runtime | Purpose |
 | --- | --- | --- | --- |
-| Current | 10.5.2 | .NET 10 | New development and forward-looking packages |
-| Legacy supported | 9.2.x | .NET 8 | Existing SaySol applications and controlled migration |
-| Research | 8.8.1 | .NET 8 | Historical source interpretation only |
+| Supported | 10.5.2 | .NET 10 | Initial validation benchmark for all new and updated tools |
+| Historical | Earlier versions | Not tested | Source interpretation and provenance only |
 
 Compatibility is asserted per capsule, not globally. A successful framework-
 light build does not prove that a Serenity endpoint, handler, grid, dialog, or
@@ -22,3 +21,8 @@ registration API works in the same lane.
 
 Exact build evidence belongs in each tool's evidence ledger. Compatibility
 ranges are narrowed when either boundary lacks evidence.
+
+`10.5+` is the repository's compatibility floor. It does not mean every later
+10.x release is automatically verified; evidence is recorded against exact
+versions, beginning with 10.5.2. Serenity versions below 10.5 are not tested,
+supported, or included in installation claims.

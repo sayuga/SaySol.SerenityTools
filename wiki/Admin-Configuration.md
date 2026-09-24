@@ -12,8 +12,8 @@ and connectivity status.
 | Property | Current value |
 | --- | --- |
 | Capsule ID | `saysol.serenity.admin-configuration` |
-| Capsule version | `0.1.0` |
-| Wiki documentation version | `1.0.1` |
+| Capsule version | `0.2.0` |
+| Wiki documentation version | `1.1.0` |
 | Maturity | Implemented contracts |
 | Installation state | **Blocked — authorization and persistence are unverified** |
 | Required permission | `Administration:Configuration` |
@@ -21,8 +21,7 @@ and connectivity status.
 
 | Lane | Serenity | Runtime | Compatibility evidence | Core test | Host installation test |
 | --- | --- | --- | --- | --- | --- |
-| Legacy | 9.2.x | .NET 8 | Planned | Passed | Not tested |
-| Current | 10.5.2 | .NET 10 | Planned | Passed | Not tested |
+| Supported baseline | 10.5.2 | .NET 10 | Planned | Passed | Not tested |
 
 ## Intended workflow
 
@@ -62,15 +61,14 @@ Widget Library, and Audit Trail are optional. No Shared dependency is required.
 
 ## Installation and configuration
 
-Installation is blocked. Version 0.1.0 declares no navigation edits, startup
+Installation is blocked. Version 0.2.0 declares no navigation edits, startup
 registration, persistence provider, or migrations because those host operations
 have not yet been proven.
 
 ### Installation testing state
 
-- Contract compilation on .NET 8/.NET 10 and manifest/schema validation: passed.
+- Contract compilation on .NET 10 and manifest/schema validation: passed.
 - Non-secret model review: completed.
-- Serenity 9.2 permission/navigation/endpoint test: not tested.
 - Serenity 10.5.2 permission/navigation/endpoint test: not tested.
 - Persistence, concurrency, profile switch, audit, upgrade, and uninstall: not tested.
 
@@ -86,7 +84,7 @@ display fields, logo path restrictions, and restart behavior.
 Upgrades preserve branding and profile keys. Repair must not overwrite host
 secret providers. Uninstall removes navigation/endpoints and capsule-owned safe
 settings only after export/approval. Applied migrations would remain forward-only;
-none exist in 0.1.0.
+none exist in 0.2.0.
 
 ## Troubleshooting and limitations
 

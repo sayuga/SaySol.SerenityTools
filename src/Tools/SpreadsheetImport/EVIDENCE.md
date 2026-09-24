@@ -10,12 +10,16 @@ Serenity-host compatibility or make the capsule installable.
 - Repository contracts: passed
 - Python resolver/capsule tests: 8 passed
 - TypeScript 5.9.3 strict type-check: passed
-- .NET 8 core compile and executable proof: passed
 - .NET 10 core compile and executable proof: passed
 
 The executable proof covers normalized header matching, explicit aliases,
 unmapped columns, ambiguous aliases, duplicate targets, import-limit validation,
-and the separate lane identities of the Serenity 9 and Serenity 10 adapter seams.
+and the Serenity 10 adapter identity.
+
+The original run also compiled the framework-light core on .NET 8. That result
+is retained only as historical evidence and does not establish or imply support
+for Serenity versions below 10.5. The legacy adapter and active test lane were
+removed when the repository baseline changed to Serenity 10.5+.
 
 ## Upstream references
 

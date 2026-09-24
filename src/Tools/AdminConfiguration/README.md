@@ -1,6 +1,6 @@
 # Admin Configuration capsule
 
-Version: 0.1.0  
+Version: 0.2.0
 Maturity: implemented contracts; not Serenity-host verified
 
 Admin Configuration defines a standardized administrator-only landing surface
@@ -18,7 +18,7 @@ probe, and target-change operations. A hidden navigation link is not security.
 Updates require an expected revision to prevent administrators overwriting each
 other, and environment/database target changes require an auditable human gate.
 
-No database schema or migration is included in 0.1.0. Persistence is an explicit
+No database schema or migration is included in 0.2.0. Persistence is an explicit
 provider decision to be proven in both Serenity host lanes.
 
 See `EVIDENCE.md` for core test results and the remaining host-validation gap.
