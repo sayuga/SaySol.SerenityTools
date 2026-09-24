@@ -13,7 +13,7 @@ and connectivity status.
 | --- | --- |
 | Capsule ID | `saysol.serenity.admin-configuration` |
 | Capsule version | `0.1.0` |
-| Wiki documentation version | `1.0.0` |
+| Wiki documentation version | `1.0.1` |
 | Maturity | Implemented contracts |
 | Installation state | **Blocked — authorization and persistence are unverified** |
 | Required permission | `Administration:Configuration` |
@@ -21,8 +21,8 @@ and connectivity status.
 
 | Lane | Serenity | Runtime | Compatibility evidence | Core test | Host installation test |
 | --- | --- | --- | --- | --- | --- |
-| Legacy | 9.2.x | .NET 8 | Planned | Pending CI | Not tested |
-| Current | 10.5.2 | .NET 10 | Planned | Pending CI | Not tested |
+| Legacy | 9.2.x | .NET 8 | Planned | Passed | Not tested |
+| Current | 10.5.2 | .NET 10 | Planned | Passed | Not tested |
 
 ## Intended workflow
 
@@ -68,7 +68,7 @@ have not yet been proven.
 
 ### Installation testing state
 
-- Contract compilation and manifest/schema validation: pending CI.
+- Contract compilation on .NET 8/.NET 10 and manifest/schema validation: passed.
 - Non-secret model review: completed.
 - Serenity 9.2 permission/navigation/endpoint test: not tested.
 - Serenity 10.5.2 permission/navigation/endpoint test: not tested.
@@ -98,4 +98,5 @@ belong in protected server operations, not the browser response.
 
 - Capsule: `src/Tools/AdminConfiguration/`
 - Manifest: `src/Tools/AdminConfiguration/capsule.yaml`
+- Evidence ledger: `src/Tools/AdminConfiguration/EVIDENCE.md`
 - Installation architecture: `docs/architecture/manifest-installation.md`

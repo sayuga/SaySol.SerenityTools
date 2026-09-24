@@ -14,3 +14,5 @@ or centrally configured and must avoid a flash of the wrong theme during load.
 
 No code has been promoted to `Serenity.SaySolShared`; this capsule is the sole
 owner of theme selection today.
+
+See `EVIDENCE.md` for core test results and the remaining host-validation gap.

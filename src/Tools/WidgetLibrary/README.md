@@ -15,3 +15,5 @@ AdminLTE 2 classes, accept raw HTML strings, or bundle chart/calendar vendors.
 
 Charts, calendars, chat, and comments remain separate future adapters because
 they add independent dependencies, security concerns, and lifecycles.
+
+See `EVIDENCE.md` for core test results and the remaining host-validation gap.

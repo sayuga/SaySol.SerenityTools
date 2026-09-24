@@ -13,7 +13,7 @@ namespace, decorator, AdminLTE 2, element-ID, or raw-HTML implementation.
 | --- | --- |
 | Capsule ID | `saysol.serenity.widget-library` |
 | Capsule version | `0.1.0` |
-| Wiki documentation version | `1.0.0` |
+| Wiki documentation version | `1.0.1` |
 | Maturity | Implemented core |
 | Installation state | **Blocked — Serenity host lifecycle is unverified** |
 | Legacy source | `sayuga/AdminLTE-Widgets-in-Typscript`, commit `2925ee6fc4ab4fa1753798bbe92ea0eddbae883a` |
@@ -21,8 +21,8 @@ namespace, decorator, AdminLTE 2, element-ID, or raw-HTML implementation.
 
 | Lane | Serenity | Runtime | Compatibility evidence | Core test | Host installation test |
 | --- | --- | --- | --- | --- | --- |
-| Legacy | 9.2.x | .NET 8 | Planned | Pending CI | Not tested |
-| Current | 10.5.2 | .NET 10 | Planned | Pending CI | Not tested |
+| Legacy | 9.2.x | .NET 8 | Planned | Passed (TypeScript core) | Not tested |
+| Current | 10.5.2 | .NET 10 | Planned | Passed (TypeScript core) | Not tested |
 
 ## Intended workflow
 
@@ -60,8 +60,8 @@ placement and bundler integration without installing AdminLTE implicitly.
 ### Installation testing state
 
 - Legacy source inventory and redesign decision: completed.
-- Manifest/schema validation: pending CI.
-- TypeScript strict type-check: pending CI.
+- Manifest/schema validation: passed.
+- TypeScript 5.9.3 strict type-check: passed.
 - Serenity 9.2 bundling/lifecycle test: not tested.
 - Serenity 10.5.2 bundling/lifecycle test: not tested.
 - Keyboard, screen reader, responsive, upgrade, and uninstall tests: not tested.
@@ -88,3 +88,4 @@ calendars require future adapter capsules or optional modules.
 - Capsule: `src/Tools/WidgetLibrary/`
 - Legacy concept source: <https://github.com/sayuga/AdminLTE-Widgets-in-Typscript>
 - Manifest: `src/Tools/WidgetLibrary/capsule.yaml`
+- Evidence ledger: `src/Tools/WidgetLibrary/EVIDENCE.md`

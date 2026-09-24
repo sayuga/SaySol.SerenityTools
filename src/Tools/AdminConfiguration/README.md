@@ -20,3 +20,5 @@ other, and environment/database target changes require an auditable human gate.
 
 No database schema or migration is included in 0.1.0. Persistence is an explicit
 provider decision to be proven in both Serenity host lanes.
+
+See `EVIDENCE.md` for core test results and the remaining host-validation gap.

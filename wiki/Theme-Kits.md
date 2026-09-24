@@ -12,15 +12,15 @@ Logistics, and Future.
 | --- | --- |
 | Capsule ID | `saysol.serenity.theme-kits` |
 | Capsule version | `0.1.0` |
-| Wiki documentation version | `1.0.0` |
+| Wiki documentation version | `1.0.1` |
 | Maturity | Implemented core |
 | Installation state | **Blocked — Serenity host rendering is unverified** |
 | Last reviewed | 2026-09-24 |
 
 | Lane | Serenity | Runtime | Compatibility evidence | Core test | Host installation test |
 | --- | --- | --- | --- | --- | --- |
-| Legacy | 9.2.x | .NET 8 | Planned | Pending CI | Not tested |
-| Current | 10.5.2 | .NET 10 | Planned | Pending CI | Not tested |
+| Legacy | 9.2.x | .NET 8 | Planned | Passed (TypeScript core) | Not tested |
+| Current | 10.5.2 | .NET 10 | Planned | Passed (TypeScript core) | Not tested |
 
 ## Intended workflow
 
@@ -59,8 +59,8 @@ placement/imports and must install only one copy of the theme stylesheet.
 
 ### Installation testing state
 
-- Manifest/schema validation: pending CI.
-- TypeScript strict type-check: pending CI.
+- Manifest/schema validation: passed.
+- TypeScript 5.9.3 strict type-check: passed.
 - Serenity 9.2 asset loading and full layout review: not tested.
 - Serenity 10.5.2 asset loading and full layout review: not tested.
 - Accessibility, no-flash loading, persistence, upgrade, and uninstall: not tested.
@@ -86,4 +86,5 @@ tokens. Per-user preference and early-load integration remain host work.
 
 - Capsule: `src/Tools/ThemeKits/`
 - Manifest: `src/Tools/ThemeKits/capsule.yaml`
+- Evidence ledger: `src/Tools/ThemeKits/EVIDENCE.md`
 - Catalog: `catalog.yaml`
