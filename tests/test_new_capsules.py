@@ -36,6 +36,20 @@ class NewCapsuleTests(unittest.TestCase):
         self.assertNotIn("insertAdjacentHTML", source)
         self.assertIn("textContent", source)
 
+    def test_widget_catalog_separates_native_and_external_sources(self):
+        native = (ROOT / "src/Tools/WidgetLibrary/ts/src/native/serenity/index.ts").read_text()
+        adminlte = (ROOT / "src/Tools/WidgetLibrary/ts/src/external/adminlte/index.ts").read_text()
+        manifest = yaml.safe_load(
+            (ROOT / "src/Tools/WidgetLibrary/capsule.yaml").read_text()
+        )
+
+        self.assertIn('id: "serenity-corelib-10.5"', native)
+        self.assertIn('native("Widget"', native)
+        self.assertIn('native("EntityGrid"', native)
+        self.assertIn('requiredByDefault: false', adminlte)
+        self.assertIn('mapping("Info Box"', adminlte)
+        self.assertEqual([], manifest["dependencies"]["npm"])
+
 
 if __name__ == "__main__":
     unittest.main()

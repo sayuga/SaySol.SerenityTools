@@ -2,8 +2,8 @@ schema_version: "1.1"
 capsule:
   id: "saysol.serenity.widget-library"
   display_name: "Widget Library"
-  version: "0.1.0"
-  description: "Typed and accessible dashboard/content widget builders."
+  version: "0.2.0"
+  description: "Mapped Serenity-native UI catalog, SaySol builders, and optional external widget providers."
   license: "MIT"
   delivery: "npm"
   source_commit: null
@@ -22,7 +22,7 @@ dependencies:
   conflicts: []
   supersedes: []
   integrates_with: ["saysol.serenity.theme-kits"]
-  provided_by_host: []
+  provided_by_host: ["@serenity-is/corelib"]
 ownership:
   claims:
     - { kind: "type-key", key: "SaySol.WidgetLibrary", policy: "exclusive" }

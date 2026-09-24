@@ -52,12 +52,12 @@ capsules:
 
   - id: "saysol.serenity.widget-library"
     display_name: "Widget Library"
-    version: "0.1.0"
+    version: "0.2.0"
     maturity: "implemented"
     delivery: "npm"
     manifest: "src/Tools/WidgetLibrary/capsule.yaml"
     documentation: "src/Tools/WidgetLibrary/README.md"
-    summary: "Typed, safe DOM builders for common dashboard and content widgets."
+    summary: "Mapped Serenity-native UI, safe SaySol builders, and optional external widget providers."
 
   - id: "saysol.serenity.admin-configuration"
     display_name: "Admin Configuration"

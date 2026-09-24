@@ -18,6 +18,19 @@ The legacy design source was reviewed at commit
 concepts while replacing the legacy namespace, decorator, ID-lookup, raw-HTML,
 and AdminLTE 2 coupling.
 
+## Native inventory — 2026-09-24
+
+- Serenity tag: `10.5.2`
+- Serenity source commit: `72c270aca67f4848c86d63aec830a2d620629690`
+- Public export surface reviewed: `packages/corelib/src/index.ts`
+- UI source families reviewed: widgets, datagrid, dialogs, editors, filtering,
+  formatters, and helpers
+- Executable map: `ts/src/native/serenity/index.ts`
+- External mapping sample: `ts/src/external/adminlte/index.ts`
+
+This is source-level compatibility evidence. It does not replace compilation
+and rendering inside a Serenity 10.5.2 host.
+
 ## Evidence still required
 
 Neither Serenity lane has bundled or rendered the widgets in a real host.
