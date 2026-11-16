@@ -1,0 +1,13 @@
+BEGIN:VCARD
+VERSION:3.0
+N:Vargas;Jonathan;;;
+FN:Jonathan Vargas
+ORG:Sayuga Solutions
+TITLE:Life Sciences Operations & Automation
+EMAIL;TYPE=INTERNET,WORK:jvargas.sayuga@gmail.com
+TEL;TYPE=CELL,VOICE:+1-617-571-8310
+URL;TYPE=WORK:https://sayugasolutions.wordpress.com/
+URL;TYPE=LinkedIn:https://www.linkedin.com/in/jonathan-vargas
+URL;TYPE=GitHub:https://github.com/sayuga
+NOTE:Life sciences operations, facilities projects, and practical technology.
+END:VCARD
